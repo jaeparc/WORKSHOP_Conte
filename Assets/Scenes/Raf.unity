@@ -207,7 +207,7 @@ GameObject:
   m_Layer: 0
   m_Name: ==Player==
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -23554,6 +23554,7 @@ GameObject:
   - component: {fileID: 2034070549}
   - component: {fileID: 2034070550}
   - component: {fileID: 2034070551}
+  - component: {fileID: 2034070552}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -23671,6 +23672,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &2034070552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034070544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ac4b0d7678ae14fb880423eea9111f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door1: {fileID: 0}
+  door2: {fileID: 0}
 --- !u!1 &2042616066
 GameObject:
   m_ObjectHideFlags: 0
