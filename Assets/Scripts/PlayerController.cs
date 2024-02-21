@@ -38,10 +38,23 @@ public class PlayerController : MonoBehaviour
     {
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
+        Vector3 moveDirection = new Vector3(moveX, 0.0f, moveZ);
+
         // Apply movement using Rigidbody for physics interaction
-        rb.MovePosition(rb.position + move * speed * Time.deltaTime);
+        if (moveDirection.magnitude > 0.1f) // Check if there's significant movement
+        {
+            // Normalize moveDirection vector to ensure consistent speed
+            moveDirection.Normalize();
+            Vector3 targetMovement = moveDirection * speed * Time.deltaTime;
+            Vector3 newPosition = rb.position + targetMovement;
+            rb.MovePosition(newPosition);
+
+            // Rotate the player to face the direction of movement
+            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+            rb.rotation = Quaternion.RotateTowards(rb.rotation, toRotation, speed * Time.deltaTime * 50); // Adjust the rotation speed as needed
+        }
     }
+
 
     void Jump()
     {
