@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraMixer : MonoBehaviour
 {
     public GameObject mixingCamera;
-    
 
 
     // Start is called before the first frame update

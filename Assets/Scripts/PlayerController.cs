@@ -2,36 +2,39 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5.0f; // Movement speed
-    public float jumpForce = 5.0f; // Force applied for jumps
-
-    private Rigidbody rb;
-    private bool isGrounded;
-
+    public float speed = 5.0f;
+    public float jumpForce = 5.0f;
+    public float gravity = -20f; // Increased gravity for better ground adherence
+    private CharacterController controller;
+    private Vector3 velocity;
+    private float groundSnapForce = -2f; // Additional downward force to improve slope handling
+    public bool isGrounded;
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        // Ensure Rigidbody is not null; otherwise, add it
-        if (rb == null)
+        controller = GetComponent<CharacterController>();
+        if (controller == null)
         {
-            rb = gameObject.AddComponent<Rigidbody>();
+            controller = gameObject.AddComponent<CharacterController>();
         }
     }
 
-    void Update()
+    public void Update()
     {
-        GroundCheck();
+        isGrounded = controller.isGrounded;
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = groundSnapForce;
+        }
+
         Walk();
+
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            /*Jump();*/
+            Jump();
         }
-    }
 
-    void GroundCheck()
-    {
-        // Cast a ray downward to check for ground
-        isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.1f);
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
     }
 
     void Walk()
@@ -39,7 +42,6 @@ public class PlayerController : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
 
-        // Get the main camera's forward and right vectors, ignoring the y component for flat movement
         Vector3 cameraForward = Camera.main.transform.forward;
         Vector3 cameraRight = Camera.main.transform.right;
         cameraForward.y = 0;
@@ -47,26 +49,29 @@ public class PlayerController : MonoBehaviour
         cameraForward.Normalize();
         cameraRight.Normalize();
 
-        // Calculate movement direction relative to the camera's orientation
         Vector3 moveDirection = (cameraForward * moveZ + cameraRight * moveX).normalized;
 
-        // Apply movement if there is input
-        if (moveDirection.magnitude > 0.1f)
+        if (moveDirection != Vector3.zero)
         {
-            Vector3 targetMovement = moveDirection * speed * Time.deltaTime;
-            Vector3 newPosition = rb.position + targetMovement;
-            rb.MovePosition(newPosition);
-
-            // Rotate the player to face the direction of movement
             Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
-            rb.rotation = Quaternion.RotateTowards(rb.rotation, toRotation, speed * Time.deltaTime * 20); // Adjust the rotation speed as needed
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, speed * Time.deltaTime * 20);
+
+            // Adjust movement based on slope
+            if (isGrounded)
+            {
+                Vector3 slopeDirection = Vector3.ProjectOnPlane(moveDirection, Vector3.up);
+                controller.Move(slopeDirection * speed * Time.deltaTime);
+            }
+            else
+            {
+                controller.Move(moveDirection * speed * Time.deltaTime);
+            }
         }
     }
 
-
     void Jump()
     {
-        // Apply an upward force for jumping
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        // Apply a more significant jump force to counteract increased gravity
+        velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
     }
 }
