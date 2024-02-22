@@ -19,8 +19,20 @@ public class CameraSetActive : MonoBehaviour
         
     }
 
+    private int collisionCount = 0;
+
+    public bool IsNotColliding
+    {
+        get { return collisionCount == 0; }
+    }
+
     private void OnTriggerEnter(Collider hit)
     {
+        if (collisionCount < 1)
+        {
+            collisionCount++;
+        }
+
         if (hit.tag == "Player")
         {
             Camera.SetActive(true);
@@ -29,9 +41,19 @@ public class CameraSetActive : MonoBehaviour
 
     private void OnTriggerExit(Collider hit)
     {
-        if (hit.tag == "Player")
+        
+        if (collisionCount == 1)
         {
-            Camera.SetActive(false);
+            collisionCount--;
         }
+  
+        if (IsNotColliding == true)
+        {
+            if (hit.tag == "Player")
+            {
+                Camera.SetActive(false);
+            }
+        }
+        
     }
 }
