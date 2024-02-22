@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMixer : MonoBehaviour
+public class CameraSetActive : MonoBehaviour
 {
-    public GameObject mixingCamera;
+    public GameObject Camera;
 
 
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class CameraMixer : MonoBehaviour
     {
         if (hit.tag == "Player")
         {
-            mixingCamera.SetActive(true);
+            Camera.SetActive(true);
         }
     }
 
@@ -31,7 +31,7 @@ public class CameraMixer : MonoBehaviour
     {
         if (hit.tag == "Player")
         {
-            mixingCamera.SetActive(false);
+            Camera.SetActive(false);
         }
     }
 }
