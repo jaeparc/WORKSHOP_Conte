@@ -762,6 +762,8 @@ MonoBehaviour:
   jumpForce: 0
   gravity: -15
   isGrounded: 0
+  RayBas: {fileID: 0}
+  RayHaut: {fileID: 0}
 --- !u!23 &628792868
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1627,8 +1629,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 20e46be82478fa24b90f748044c06b4b, type: 2}
   m_PivotOffset: {x: 8, y: 8, z: 0}
-  m_AmplitudeGain: 0.55
-  m_FrequencyGain: 3
+  m_AmplitudeGain: 0.25
+  m_FrequencyGain: 1.47
   mNoiseOffsets: {x: -946.8811, y: 388.5095, z: 502.11212}
 --- !u!114 &1394069209
 MonoBehaviour:
