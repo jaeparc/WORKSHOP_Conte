@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        //ClimbCheck();
 
 
     }
@@ -79,40 +78,5 @@ public class PlayerController : MonoBehaviour
     {
         // Apply a more significant jump force to counteract increased gravity
         velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-    }
-
-    void ClimbCheck()
-    {
-        Vector3 RayBasStart = RayBas.transform.position;
-        Vector3 RayHautStart = RayHaut.transform.position;
-        Vector3 RayDirection = transform.forward;
-
-        float MaxDistance = 0.1f;
-
-        RaycastHit hit;
-
-        RaycastHit hit2;
-        float MaxDistance2 = 0.5f;
-
-        if (Physics.Raycast(RayBasStart, RayDirection, out hit, MaxDistance))
-        {
-            if (Mathf.Abs(hit.normal.y) < 0.5f)
-            {
-
-
-                if (Physics.Raycast(RayHautStart, RayDirection, out hit2, MaxDistance2))
-                {
-                    
-                }
-                else
-                {
-                    transform.position = new Vector3(transform.position.x, transform.position.y+0.5f,transform.position.z);
-                }
-
-            }
-        }
-
-        Debug.DrawRay(RayBasStart, RayDirection * MaxDistance, Color.red);
-        Debug.DrawRay(RayHautStart, RayDirection * MaxDistance2, Color.red);
     }
 }
