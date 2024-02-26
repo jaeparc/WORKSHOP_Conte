@@ -43,6 +43,11 @@ public class PlayerNavMeshController : MonoBehaviour
         // Directly set the player's position to the new position
         transform.position = newPosition;
     }
+
+    private void NavAction()
+    {
+        NavMeshHit hit;
+    }
 }
 
 
