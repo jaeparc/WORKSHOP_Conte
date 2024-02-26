@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
 
 public class PlayerNavMeshController : MonoBehaviour
 {
     public float speed = 5.0f;
-
     private Vector3 moveDirection = Vector3.zero;
 
+    // Update is called once per frame
     void Update()
     {
         // Use Unity's legacy input system to read horizontal and vertical inputs
@@ -20,6 +21,13 @@ public class PlayerNavMeshController : MonoBehaviour
         if (moveDirection.sqrMagnitude >= 0.01f) // Use a small threshold to ignore negligible input
         {
             MovePlayer();
+        }
+
+        // Check if a specific key is pressed to trigger an action
+        if (Input.GetKeyDown(KeyCode.Space)) // You can change KeyCode.Space to any key you'd like to use
+        {
+            Debug.Log("Check");
+            NavAction();
         }
     }
 
@@ -44,11 +52,29 @@ public class PlayerNavMeshController : MonoBehaviour
         transform.position = newPosition;
     }
 
-    private void NavAction()
+
+    void NavAction()
     {
-        NavMeshHit hit;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit))
+        {
+            switch (hit.collider.gameObject.tag)
+            {
+                case "Walkable": // Make sure the spelling matches the tag exactly.
+                    Debug.Log("You can walk here");
+                    break;
+                case "Jump":
+                    Debug.Log("You can Jump here");
+                    break;
+                default:
+                    Debug.Log("Area not recognized");
+                    break;
+            }
+        }
     }
+
 }
+
 
 
 
