@@ -1,0 +1,35 @@
+﻿title: Pouffiasse
+tags:
+
+---
+<<declare $torsion = 0>>
+<<declare $vuDamnBro = false>>
+
+Professeur d'anglais : Bonjour! Je suis une professeur d'anglais.
+
+<<if $vuDamnBro>>
+-> Oui bah je sais lire connasse
+    Professeur d'anglais :Excuse me?! Qu'est-ce que tu racontes? C'est pas écrit sur mon fro-... wait...rien de cela n'est réel...que suis-je?
+-> T'es qu'une grosse POUFFIASSE!
+    <<if $torsion > 0>>
+        Professeur d'anglais : Hahaha enjoy ta nouvelle caméra connard !!!
+    <<else>>
+        Professeur d'anglais : Damn bro pourquoi...
+    <<endif>>
+-> Nique ta mère mdrrrr
+    Professeur d'anglais : Quoi?! Fuck you !!! Mange ça connard TORSION TESTICULAIRE
+    <<set $torsion += 1>>
+    <<FaireNoise Player>>
+<<else>>
+-> Oui bah je sais lire connasse
+    Professeur d'anglais :Excuse me?! Qu'est-ce que tu racontes? C'est pas écrit sur mon fro-... wait...rien de cela n'est réel...que suis-je?
+-> T'es qu'une grosse POUFFIASSE!
+    <<if $torsion > 0>>
+        Professeur d'anglais : Hahaha enjoy ta nouvelle caméra connard !!!
+    <<else>>
+        Professeur d'anglais : Damn bro pourquoi...
+        <<set $vuDamnBro = true>>
+    <<endif>>
+<<endif>>
+===
+
