@@ -12,11 +12,21 @@ public class NPCInteractor : MonoBehaviour
     
     bool triggerStay = false;
 
+    public PlayerController playerController;
+    public float vitesse;
+    public float jump;
+    public  float vitTemp;
+    public float jumpTemp;
+
+    public void Start()
+    {
+        
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && triggerStay)
         {
-            dialogueRunner.StartDialogue("Pouffiasse");
+            dialogueRunner.StartDialogue("Introduction");
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -33,21 +43,48 @@ public class NPCInteractor : MonoBehaviour
             triggerStay = false;
         }
     }
-    public void CommencerCoroutine()
+    public void ChangerFOVDebutInteraction()
     {
         StartCoroutine(ChangeFOV(cacamera,35,0.5f));
     }
 
-    public void EndCoroutine()
+    public void FinirFOVCoroutine()
     {
         StartCoroutine(ChangeFOV(cacamera,60,0.3f));
     }
-    
+
+    [YarnCommand("ChangerFOVMalediction")]
+    public void ChangerFOVMalediction()
+    {
+        StartCoroutine(ChangeFOV(cacamera,110,5));
+    }
+
     [YarnCommand("FaireNoise")]
     public void FaireNoise()
     {
         print("caca");
-        StartCoroutine(ChangeNoise(cacamera,0.65f,5));
+        StartCoroutine(ChangeNoise(cacamera,0.75f,5));
+    }
+
+    [YarnCommand("AmeliorationJoueur")]
+    public void AmeliorationJoueur(float vitesse, float jump)
+    {
+        playerController.speed = vitesse;
+        playerController.jumpForce = jump;
+    }
+
+    public void ArreterMouvements()
+    {
+        vitTemp = playerController.speed;
+        jumpTemp = playerController.jumpForce;
+        playerController.speed = 0f;
+        playerController.jumpForce = 0f;
+    }
+
+    public void ReprendreMouvements()
+    {
+        playerController.speed = vitTemp;
+        playerController.jumpForce = jumpTemp;
     }
 
     public IEnumerator ChangeFOV(CinemachineVirtualCamera cam, float endFOV, float duration)
