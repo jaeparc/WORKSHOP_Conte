@@ -1,22 +1,23 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5.0f;
     public float jumpForce = 5.0f;
-    public float gravity = -20f; // Increased gravity for better ground adherence
+    public float gravity = -20f;
     private CharacterController controller;
     private Vector3 velocity;
-    private float groundSnapForce = -2f; // Additional downward force to improve slope handling
+    private float groundSnapForce = -2f;
     public bool isGrounded;
-    public GameObject RayBas, RayHaut;
+    public float maxSlopeAngle = 45f;
+    public Transform CheckGround1, CheckGround2, CheckGround3, CheckGround4, CheckGround5, CheckGround6, CheckGround7, CheckGround8;
+    public bool isSliding;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
-        if (controller == null)
-        {
-            controller = gameObject.AddComponent<CharacterController>();
-        }
     }
 
     public void Update()
@@ -28,19 +29,16 @@ public class PlayerController : MonoBehaviour
         }
 
         Walk();
+        SlopeManagement();
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Fire1") && isGrounded && isSliding == false)
         {
             Jump();
         }
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-
-
-
     }
-
 
     void Walk()
     {
@@ -54,29 +52,64 @@ public class PlayerController : MonoBehaviour
         cameraForward.Normalize();
         cameraRight.Normalize();
 
-        Vector3 moveDirection = (cameraForward * moveZ + cameraRight * moveX).normalized;
+
+
+        Vector3 moveDirection = (cameraForward * moveZ + cameraRight * moveX).normalized * speed ;
+
+        float yVelocity = velocity.y;
+        velocity = moveDirection;
+        velocity.y = yVelocity;
 
         if (moveDirection != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, speed * Time.deltaTime * 200);
-
-            // Adjust movement based on slope
-            if (isGrounded)
-            {
-                Vector3 slopeDirection = Vector3.ProjectOnPlane(moveDirection, Vector3.up);
-                controller.Move(slopeDirection * speed * Time.deltaTime);
-            }
-            else
-            {
-                controller.Move(moveDirection * speed * Time.deltaTime);
-            }
         }
+
     }
 
     void Jump()
     {
-        // Apply a more significant jump force to counteract increased gravity
         velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(CheckGround1.position, CheckGround1.position + Vector3.down);
+        Gizmos.DrawLine(CheckGround2.position, CheckGround2.position + Vector3.down);
+        Gizmos.DrawLine(CheckGround3.position, CheckGround3.position + Vector3.down);
+        Gizmos.DrawLine(CheckGround4.position, CheckGround4.position + Vector3.down);
+        Gizmos.DrawLine(CheckGround5.position, CheckGround5.position + Vector3.down);
+        Gizmos.DrawLine(CheckGround6.position, CheckGround6.position + Vector3.down);
+        Gizmos.DrawLine(CheckGround7.position, CheckGround7.position + Vector3.down);
+        Gizmos.DrawLine(CheckGround8.position, CheckGround8.position + Vector3.down);
+
+    }
+
+    void SlopeManagement()
+    {
+
+        if (isGrounded)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(CheckGround1.transform.position + Vector3.up * 0.1f, Vector3.down, out hit, 3f))
+            {
+                Vector3 groundNormal = hit.normal;
+                float slopeAngle = Vector3.Angle(groundNormal, Vector3.up);
+                
+                isSliding = slopeAngle >= maxSlopeAngle;
+                if (isSliding)
+                {
+                    Vector3 slopeDirection = Vector3.Cross(groundNormal, Vector3.up);
+                    slopeDirection = Vector3.Cross(slopeDirection, groundNormal).normalized;
+                    
+                    Debug.Log(slopeDirection);
+                    velocity += slopeDirection * -speed * 2;
+                }
+            }
+        }
+
+
     }
 }
