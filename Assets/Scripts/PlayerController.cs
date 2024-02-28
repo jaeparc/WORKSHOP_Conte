@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5.0f;
+    public float speedBase;
     public float jumpForce = 5.0f;
     public float gravity = -20f;
     private CharacterController controller;
@@ -17,9 +18,12 @@ public class PlayerController : MonoBehaviour
     public bool isSliding;
 
     public float CoyotteTime, CoyotteTimeCounter;
+
+    public float JumpBufferTime, JumpBufferCounter;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        speedBase = speed;
     }
 
     public void Update()
@@ -30,12 +34,14 @@ public class PlayerController : MonoBehaviour
             velocity.y = groundSnapForce;
         }
 
+        Acceleration();
         Walk();
         SlopeManagement();
 
         SetCoyotteTime();
+        SetJumpBuffer();
 
-        if (Input.GetButtonDown("Fire1") && CoyotteTimeCounter > 0 && isSliding == false)
+        if (JumpBufferCounter > 0 && CoyotteTimeCounter > 0 && isSliding == false)
         {
             Jump();
         }
@@ -58,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-        Vector3 moveDirection = (cameraForward * moveZ + cameraRight * moveX).normalized * speed ;
+        Vector3 moveDirection = (cameraForward * moveZ + cameraRight * moveX).normalized * speed;
 
         float yVelocity = velocity.y;
         velocity = moveDirection;
@@ -76,6 +82,7 @@ public class PlayerController : MonoBehaviour
     {
         velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         CoyotteTimeCounter = 0f;
+        JumpBufferCounter = 0f;
     }
 
     private void OnDrawGizmos()
@@ -102,22 +109,22 @@ public class PlayerController : MonoBehaviour
             {
                 Vector3 groundNormal = hit.normal;
                 float slopeAngle = Vector3.Angle(groundNormal, Vector3.up);
-                
+
                 isSliding = slopeAngle >= maxSlopeAngle;
                 if (isSliding)
                 {
                     Vector3 slopeDirection = Vector3.Cross(groundNormal, Vector3.up);
                     slopeDirection = Vector3.Cross(slopeDirection, groundNormal).normalized;
-                    
+
                     Debug.Log(slopeDirection);
                     velocity += slopeDirection * -speed * 2;
                 }
             }
         }
 
-        
+
     }
-    
+
     void SetCoyotteTime()
     {
         if (isGrounded == true)
@@ -128,6 +135,37 @@ public class PlayerController : MonoBehaviour
         {
             CoyotteTimeCounter -= Time.deltaTime;
         }
-        
+
+    }
+
+    void SetJumpBuffer()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            JumpBufferCounter = JumpBufferTime;
+
+        }
+        else
+        {
+            JumpBufferCounter -= Time.deltaTime;
+        }
+
+    }
+
+    void Acceleration()
+    {
+
+        if ((Input.GetAxis("Horizontal") >= 0.1f || Input.GetAxis("Horizontal") <= -0.1f || Input.GetAxis("Vertical") >= 0.1f || Input.GetAxis("Vertical") <= -0.1f) && speed <= 1.7f * speedBase)
+        {
+            speed += speedBase * 0.01f;
+        }
+
+        else if ((Mathf.Abs(Input.GetAxis("Horizontal")) < 0.1f && Mathf.Abs(Input.GetAxis("Vertical")) < 0.1f) && speed != speedBase)
+        {
+            speed = speedBase;
+        }
+
+
+
     }
 }
