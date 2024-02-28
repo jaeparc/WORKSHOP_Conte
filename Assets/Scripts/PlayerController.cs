@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float maxSlopeAngle = 45f;
     public Transform CheckGround1, CheckGround2, CheckGround3, CheckGround4, CheckGround5, CheckGround6, CheckGround7, CheckGround8;
     public bool isSliding;
+
+    public float CoyotteTime, CoyotteTimeCounter;
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -31,7 +33,9 @@ public class PlayerController : MonoBehaviour
         Walk();
         SlopeManagement();
 
-        if (Input.GetButtonDown("Fire1") && isGrounded && isSliding == false)
+        SetCoyotteTime();
+
+        if (Input.GetButtonDown("Fire1") && CoyotteTimeCounter > 0 && isSliding == false)
         {
             Jump();
         }
@@ -71,6 +75,7 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+        CoyotteTimeCounter = 0f;
     }
 
     private void OnDrawGizmos()
@@ -110,6 +115,19 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-
+        
+    }
+    
+    void SetCoyotteTime()
+    {
+        if (isGrounded == true)
+        {
+            CoyotteTimeCounter = CoyotteTime;
+        }
+        else
+        {
+            CoyotteTimeCounter -= Time.deltaTime;
+        }
+        
     }
 }
