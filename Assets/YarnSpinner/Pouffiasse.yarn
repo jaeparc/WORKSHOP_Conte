@@ -1,0 +1,71 @@
+﻿title: Introduction
+tags:
+
+---
+<<declare $torsion = 0>>
+<<declare $vuDamnBro = false>>
+
+Professeur d'anglais : Bonjour! Je suis une professeur d'anglais.
+
+<<if $vuDamnBro>>
+-> Oui bah je sais lire connasse
+    Professeur d'anglais :Excuse me?! Qu'est-ce que tu racontes? C'est pas écrit sur mon front mdrr
+    -> Bah si du coup
+        Professeur d'anglais : Hein? Je don't understand là t'es bizarre vsy bouge
+    -> J'avoue dsl
+        Professeur d'anglais : It's okay mon gars tqt
+-> T'es qu'une grosse POUFFIASSE!
+    <<if $torsion > 0>>
+        Professeur d'anglais : Hahaha enjoy ta nouvelle caméra connard !!!
+    <<else>>
+        Professeur d'anglais : Arrête de m'insulter j'ai dit!! Surtout pas ma mère.
+    <<endif>>
+-> C'est quoi le truc rose là?
+    Professeur d'anglais : Le TRUC? C'est mon FILS motherfucker !! T'inquiète pas Capsule2 il parle pas de toi..
+    Capsule2 : D'accord papa !
+    -> Attends son nom c'est Capsule2 ??? Ca pue sa mère hahhaha force à toi gamin
+        Professeur d'anglais : Mais ça va PAS ?! Allez tiens prends ça MALEDICTION DE RA !!!!!!
+        <<ChangerFOVMalediction Player>>
+        Capsule2 : Hahaha prends ça enculé !!
+    -> Ah ouais il s'appelle Capsule2...Je m'excuse alors désolé...
+        Professeur d'anglais : No problem mec c'est pas grave. T'sais quoi t'es grave un bon en vrai t'en penses quoi Capsule2 ?
+        Capsule2 : Ouais c'est pas grave! Papa tu devrais lui faire ton tour de magie !!!
+        Professeur d'anglais : Oh yeah? Bon, allez... tiens, tu le mérites bien. AUGMENTATION DES MOLLETS !!!!!!
+        <<AmeliorationJoueur Player 11.5f 2>>
+        -> Wow ça veut dire quoi ça ??
+        Professeur d'anglais : Je viens d'augmenter tes mollets... En gros t'as assez de force pour sauter et courir faster !
+-> Nique ta mère mdrrrr
+    Professeur d'anglais : Quoi?! Fuck you !!! Mange ça connard TORSION TESTICULAIRE !!!!!!!
+    <<set $torsion += 1>>
+    <<FaireNoise Player>>
+<<else>>
+-> Oui bah je sais lire connasse
+    Professeur d'anglais :Excuse me?! Qu'est-ce que tu racontes? C'est pas écrit sur mon front mdrr
+    -> Bah si du coup
+        Professeur d'anglais : Hein? Je don't understand là t'es bizarre vsy bouge
+    -> J'avoue dsl
+        Professeur d'anglais : It's okay mon gars tqt.
+-> T'es qu'une grosse POUFFIASSE!
+    <<if $torsion > 0>>
+        Professeur d'anglais : Hahaha enjoy ta nouvelle caméra connard !!!
+    <<else>>
+        Professeur d'anglais : Damn bro pourquoi... Arrête de m'insulter stp sinon jvais commencer à te faire des dingueries la vérité
+        <<set $vuDamnBro = true>>
+    <<endif>>
+-> C'est quoi le truc rose là?
+    Professeur d'anglais : Le TRUC? C'est mon FILS motherfucker !! T'inquiète pas Capsule2 il parle pas de toi..
+    Capsule2 : D'accord papa !
+    -> Attends son nom c'est Capsule2 ??? Ca pue sa mère hahhaha force à toi gamin
+        Professeur d'anglais : Mais ça va PAS ?! Allez tiens prends ça MALEDICTION DE RA !!!!!!
+        <<ChangerFOVMalediction Player>>
+        Capsule2 : Hahaha prends ça enculé !!
+    -> Ah ouais il s'appelle Capsule2...Je m'excuse alors désolé...
+        Professeur d'anglais : No problem mec c'est pas grave. T'sais quoi t'es grave un bon en vrai t'en penses quoi Capsule2 ?
+        Capsule2 : Ouais c'est pas grave! Papa tu devrais lui faire ton tour de magie !!!
+        Professeur d'anglais : Oh yeah? Bon, allez... tiens, tu le mérites bien. AUGMENTATION DES MOLLETS !!!!!!
+        <<AmeliorationJoueur Player 11 2>>
+        -> Wow ça veut dire quoi ça ??
+        Professeur d'anglais : Je viens d'augmenter tes mollets... En gros t'as assez de force pour sauter et courir faster !
+<<endif>>
+===
+
