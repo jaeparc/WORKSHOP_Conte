@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
             velocity.y = groundSnapForce;
         }
 
+        AnimationCOntroller();
         Acceleration();
         Walk();
         SlopeManagement();
@@ -173,6 +174,7 @@ public class PlayerController : MonoBehaviour
 
     void AnimationCOntroller()
     {
+        bool canJump = true;
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
         Vector3 Movement = (moveZ * Vector3.up + moveX * Vector3.right);
@@ -185,15 +187,21 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("IsMoving", false);
         }
 
-        if (JumpBufferCounter > 0 && CoyotteTimeCounter > 0 && isSliding == false)
+
+        if (canJump && Input.GetButtonDown("Fire1"));
         {
             anim.SetBool("Jump", true) ;
+            canJump = false;
         }
 
         if (controller.isGrounded)
         {
             anim.SetBool("Jump", false);
+            canJump = true;
         }
+
+        anim.SetBool("isGrounded", controller.isGrounded);
+
 
 
     }
