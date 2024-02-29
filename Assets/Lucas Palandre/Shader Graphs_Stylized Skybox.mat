@@ -30,7 +30,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6BA91097:
-        m_Texture: {fileID: 2800000, guid: cfca4b93ae1ee8c428221f8780479c7f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 131585314bf3dc44faf098c203c9a5e6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_C317BDD3:
@@ -52,14 +52,14 @@ Material:
     m_Ints: []
     m_Floats:
     - Vector1_166C34A9: 0.11
-    - Vector1_249357C1: 0.176
-    - Vector1_2CC6A532: 0.18
-    - Vector1_3B7A233E: 0.98
+    - Vector1_249357C1: 0.086
+    - Vector1_2CC6A532: 0.17
+    - Vector1_3B7A233E: -1.84
     - Vector1_6F3D4927: 0.04
-    - Vector1_9BA3FBEE: 1.17
+    - Vector1_9BA3FBEE: 0.13
     - Vector1_9E12CF26: 0.236
     - Vector1_B93A03DE: -0.001
-    - Vector1_BA803F6: 0.026
+    - Vector1_BA803F6: 1
     - Vector1_D80769F7: 2.15
     - Vector1_ECE38ED2: -0.04
     - Vector1_FA4E5253: 0.05
@@ -67,23 +67,23 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - Color_1EB49FED: {r: 0.9622642, g: 0.7901955, b: 0.33134568, a: 0}
-    - Color_424F81E0: {r: 0.9056604, g: 0.883785, b: 0.6237095, a: 0}
-    - Color_68FD0CD8: {r: 0.3135903, g: 0.764151, b: 0.7309518, a: 0}
+    - Color_1EB49FED: {r: 0.8396226, g: 0.71515024, b: 0.38416696, a: 0}
+    - Color_424F81E0: {r: 0.5599497, g: 0.5582948, b: 0.7735849, a: 0}
+    - Color_68FD0CD8: {r: 0.08503916, g: 0.8584906, b: 0.82939845, a: 0}
     - Color_83CF459: {r: 0.13550197, g: 0.135871, b: 0.3301887, a: 0}
-    - Color_AB9D6D2F: {r: 0.15246676, g: 0.03551085, b: 0.3962264, a: 0}
-    - Color_B54BEABE: {r: 0.5283019, g: 0.36133856, b: 0.36133856, a: 0}
-    - Color_BE31CDF2: {r: 0.25490198, g: 0.5283097, b: 1, a: 0}
+    - Color_AB9D6D2F: {r: 0.070389695, g: 0.056870773, b: 0.16981131, a: 0}
+    - Color_B54BEABE: {r: 0.042452827, g: 0.04794694, b: 0.16981131, a: 0}
+    - Color_BE31CDF2: {r: 0.27394092, g: 0.353461, b: 0.7169812, a: 0}
     - Color_D230EFA1: {r: 0, g: 0, b: 0, a: 0}
     - Color_E5129607: {r: 0.5960751, g: 0.784987, b: 0.8962264, a: 0}
-    - _Color: {r: 0, g: 0, b: 0, a: 0}
-    - _Color_1: {r: 0.49019605, g: 0.47058815, b: 0.16470587, a: 0}
+    - _Color: {r: 0.41509432, g: 0.2212531, b: 0.2212531, a: 0}
+    - _Color_1: {r: 0.3375311, g: 0.22227661, b: 0.3490566, a: 0}
     - _Color_2: {r: 0, g: 0, b: 0, a: 0}
     - _Color_3: {r: 0, g: 0, b: 0, a: 0}
     - _day_cloud_color: {r: 0, g: 0, b: 0, a: 0}
     - _day_cloud_color_1: {r: 0.5566038, g: 0.16540584, b: 0.16540584, a: 0}
     - _day_cloud_color_2: {r: 0.3584906, g: 0.079476684, b: 0.079476684, a: 0}
-    - _nightcloud_color: {r: 0.5490196, g: 0.054901943, b: 0.972549, a: 0}
+    - _nightcloud_color: {r: 0.58437175, g: 0.18752226, b: 0.9245283, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2525153437655503745
 MonoBehaviour:
