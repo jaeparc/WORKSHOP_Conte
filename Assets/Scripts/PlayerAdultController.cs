@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerController : MonoBehaviour
+public class PlayerAdultController : MonoBehaviour
 {
     public float speed = 5.0f;
     public float speedBase;
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
         speedModifier = Mathf.Abs(Vector3.Dot(GroundNormal().normalized, Vector3.down));
 
-        AnimationCOntroller();
+/*        AnimationCOntroller();*/
         Acceleration();
 
         if (Crouch)
@@ -276,7 +276,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    void AnimationCOntroller()
+/*    void AnimationCOntroller()
     {
         bool canJump = true;
         float moveX = Input.GetAxis("Horizontal");
@@ -308,7 +308,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    }
+    }*/
 
     public Vector3 GroundNormal()
     {

@@ -502,8 +502,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.5005188
-      value: 0.5
+      time: 0.65162253
+      value: 0.74954855
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -522,6 +522,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  Crouch: 0
 --- !u!65 &1725012270566336093
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -736,7 +737,7 @@ GameObject:
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1725012270922801137
 Transform:
   m_ObjectHideFlags: 0
