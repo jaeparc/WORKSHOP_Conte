@@ -87,18 +87,51 @@ public class PlayerController : MonoBehaviour
         cameraForward.Normalize();
         cameraRight.Normalize();
 
+        Vector3 moveDirection = Vector3.zero;
+
         float walkSpeed = 1;
         if (isGrounded)
         {
             walkSpeed = SpeedCurve.Evaluate(speedModifier);
+
+            moveDirection = (cameraForward * moveZ + cameraRight * moveX).normalized * speed * walkSpeed;
+
+            float yVelocity = velocity.y;
+            velocity = moveDirection;
+            velocity.y = yVelocity;
+        }
+        else // Adjusted air control
+        {
+            Vector3 inputDirection = (cameraForward * moveZ + cameraRight * moveX).normalized;
+            float airControlFactor = 0.025f; // Further reduced for less air control
+
+            // Apply a damping effect based on the difference between current and desired direction
+            Vector3 desiredDirection = inputDirection * speed;
+            Vector3 velocityChange = (desiredDirection - new Vector3(velocity.x, 0, velocity.z)) * airControlFactor;
+
+            // Evaluate the current velocity to apply changes
+            if (velocity.x * inputDirection.x < 0 || velocity.z * inputDirection.z < 0)
+            {
+                // If the player is trying to change direction, allow a bit more control
+                velocityChange *= 2;
+            }
+
+            velocity.x += velocityChange.x;
+            velocity.z += velocityChange.z;
+
+            // Clamp the horizontal velocity to ensure it doesn't exceed maximum air speed
+            Vector3 horizontalVelocity = new Vector3(velocity.x, 0, velocity.z);
+            if (horizontalVelocity.magnitude > speed)
+            {
+                horizontalVelocity = horizontalVelocity.normalized * speed;
+                velocity.x = horizontalVelocity.x;
+                velocity.z = horizontalVelocity.z;
+            }
         }
 
-        Vector3 moveDirection = (cameraForward * moveZ + cameraRight * moveX).normalized * speed * walkSpeed;
-        Debug.Log(speedModifier);
 
-        float yVelocity = velocity.y;
-        velocity = moveDirection;
-        velocity.y = yVelocity;
+
+
 
         if (moveDirection != Vector3.zero)
         {
