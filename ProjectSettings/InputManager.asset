@@ -42,9 +42,9 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: mouse 1
-    altNegativeButton: 
-    altPositiveButton: mouse 0
+    positiveButton: space
+    altNegativeButton: mouse 2
+    altPositiveButton: mouse 1
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
