@@ -479,24 +479,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   speedBase: 0
-  jumpForce: 3
+  jumpForce: 2.5
   gravity: -80
   isGrounded: 0
   maxSlopeAngle: 45
-  CheckGround1: {fileID: 1725012270535053603}
-  CheckGround2: {fileID: 1725012270971350447}
-  CheckGround3: {fileID: 1725012269816227294}
-  CheckGround4: {fileID: 1725012270841034608}
-  CheckGround5: {fileID: 1725012269495504313}
-  CheckGround6: {fileID: 1725012271274980558}
-  CheckGround7: {fileID: 1725012269843548842}
-  CheckGround8: {fileID: 1725012269843445078}
   isSliding: 0
   CoyotteTime: 0.2
   CoyotteTimeCounter: 0
   JumpBufferTime: 0.2
   JumpBufferCounter: 0
   anim: {fileID: 6530212615707344534}
+  CheckGround:
+  - {fileID: 1725012270535053603}
+  - {fileID: 1725012270971350447}
+  - {fileID: 1725012269816227294}
+  - {fileID: 1725012270841034608}
+  - {fileID: 1725012269495504313}
+  - {fileID: 1725012271274980558}
+  - {fileID: 1725012269843548842}
+  - {fileID: 1725012269843445078}
+  SpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.65162253
+      value: 0.74954855
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Crouch: 0
 --- !u!65 &1725012270566336093
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -508,8 +534,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0107384, y: 2.7753568, z: 1}
+  m_Center: {x: -0.0053691864, y: 0.29952192, z: 2.078959e-17}
 --- !u!54 &1725012270566336090
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -550,13 +576,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
+  m_Height: 2.72
+  m_Radius: 0.6
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.31, z: 0}
 --- !u!96 &1725012270566336083
 TrailRenderer:
   serializedVersion: 2
@@ -711,7 +737,7 @@ GameObject:
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1725012270922801137
 Transform:
   m_ObjectHideFlags: 0
@@ -843,7 +869,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725012271114323827}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1443,8 +1469,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5353983489547194379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.69, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -1.08, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2202927318697158131}

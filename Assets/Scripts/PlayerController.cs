@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,7 +16,6 @@ public class PlayerController : MonoBehaviour
     private float groundSnapForce = -2f;
     public bool isGrounded;
     public float maxSlopeAngle = 45f;
-    public Transform CheckGround1, CheckGround2, CheckGround3, CheckGround4, CheckGround5, CheckGround6, CheckGround7, CheckGround8;
     public bool isSliding;
 
     public float CoyotteTime, CoyotteTimeCounter;
@@ -22,10 +23,31 @@ public class PlayerController : MonoBehaviour
     public float JumpBufferTime, JumpBufferCounter;
 
     public Animator anim;
+
+    public Transform[] CheckGround;
+
+    float speedModifier;
+
+    public AnimationCurve SpeedCurve;
+
+    public bool Crouch;
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        foreach (var item in CheckGround)
+        {
+            Gizmos.DrawLine(item.position, item.position + Vector3.down * 0.5f);
+        }
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + GroundNormal());
+    }
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         speedBase = speed;
+        Crouch = false;
     }
 
     public void Update()
@@ -36,9 +58,27 @@ public class PlayerController : MonoBehaviour
             velocity.y = groundSnapForce;
         }
 
+        if (Input.GetButtonDown("Fire2"))
+        {
+            Crouch = !Crouch;
+        }
+
+        speedModifier = Mathf.Abs(Vector3.Dot(GroundNormal().normalized, Vector3.down));
+
         AnimationCOntroller();
         Acceleration();
-        Walk();
+
+        if (Crouch)
+        {
+            CrouchWalk();
+            transform.localScale = new Vector3(transform.localScale.x, 0.5f, transform.localScale.x);
+        }
+        else
+        {
+            Walk();
+            transform.localScale = new Vector3(transform.localScale.x, 1f, transform.localScale.x);
+
+        }
         SlopeManagement();
 
         SetCoyotteTime();
@@ -54,7 +94,7 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    void Walk()
+    void CrouchWalk()
     {
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
@@ -68,11 +108,86 @@ public class PlayerController : MonoBehaviour
 
 
 
-        Vector3 moveDirection = (cameraForward * moveZ + cameraRight * moveX).normalized * speed;
+        float walkSpeed = 1;
+        if (isGrounded)
+        {
+            walkSpeed = SpeedCurve.Evaluate(speedModifier);
+        }
+
+        if (!isGrounded)
+        {
+
+        }
+        Vector3 moveDirection = (cameraForward * moveZ + cameraRight * moveX).normalized * (speed / 2) * walkSpeed;
+        Debug.Log(speedModifier);
 
         float yVelocity = velocity.y;
         velocity = moveDirection;
         velocity.y = yVelocity;
+
+        if (moveDirection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, (speed / 2) * Time.deltaTime * 200);
+        }
+    }
+    void Walk()
+    {
+        float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
+
+        Vector3 cameraForward = Camera.main.transform.forward;
+        Vector3 cameraRight = Camera.main.transform.right;
+        cameraForward.y = 0;
+        cameraRight.y = 0;
+        cameraForward.Normalize();
+        cameraRight.Normalize();
+
+        Vector3 moveDirection = Vector3.zero;
+
+        float walkSpeed = 1;
+        if (isGrounded)
+        {
+            walkSpeed = SpeedCurve.Evaluate(speedModifier);
+
+            moveDirection = (cameraForward * moveZ + cameraRight * moveX).normalized * speed * walkSpeed;
+
+            float yVelocity = velocity.y;
+            velocity = moveDirection;
+            velocity.y = yVelocity;
+        }
+        else // Adjusted air control
+        {
+            Vector3 inputDirection = (cameraForward * moveZ + cameraRight * moveX).normalized;
+            float airControlFactor = 0.05f; // Further reduced for less air control
+
+            // Apply a damping effect based on the difference between current and desired direction
+            Vector3 desiredDirection = inputDirection * speed;
+            Vector3 velocityChange = (desiredDirection - new Vector3(velocity.x, 0, velocity.z)) * airControlFactor;
+
+            // Evaluate the current velocity to apply changes
+            if (velocity.x * inputDirection.x < 0 || velocity.z * inputDirection.z < 0)
+            {
+                // If the player is trying to change direction, allow a bit more control
+                velocityChange *= 2;
+            }
+
+            velocity.x += velocityChange.x;
+            velocity.z += velocityChange.z;
+
+            // Clamp the horizontal velocity to ensure it doesn't exceed maximum air speed
+            Vector3 horizontalVelocity = new Vector3(velocity.x, 0, velocity.z);
+            if (horizontalVelocity.magnitude > speed)
+            {
+                horizontalVelocity = horizontalVelocity.normalized * speed;
+                velocity.x = horizontalVelocity.x;
+                velocity.z = horizontalVelocity.z;
+            }
+        }
+
+
+
+
 
         if (moveDirection != Vector3.zero)
         {
@@ -84,44 +199,33 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        Crouch = false;
         velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         CoyotteTimeCounter = 0f;
         JumpBufferCounter = 0f;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(CheckGround1.position, CheckGround1.position + Vector3.down);
-        Gizmos.DrawLine(CheckGround2.position, CheckGround2.position + Vector3.down);
-        Gizmos.DrawLine(CheckGround3.position, CheckGround3.position + Vector3.down);
-        Gizmos.DrawLine(CheckGround4.position, CheckGround4.position + Vector3.down);
-        Gizmos.DrawLine(CheckGround5.position, CheckGround5.position + Vector3.down);
-        Gizmos.DrawLine(CheckGround6.position, CheckGround6.position + Vector3.down);
-        Gizmos.DrawLine(CheckGround7.position, CheckGround7.position + Vector3.down);
-        Gizmos.DrawLine(CheckGround8.position, CheckGround8.position + Vector3.down);
-
-    }
 
     void SlopeManagement()
     {
 
         if (isGrounded)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(CheckGround1.transform.position + Vector3.up * 0.1f, Vector3.down, out hit, 3f))
+            Vector3 groundNormal = GroundNormal();
+            if (groundNormal != Vector3.zero)
             {
-                Vector3 groundNormal = hit.normal;
                 float slopeAngle = Vector3.Angle(groundNormal, Vector3.up);
 
                 isSliding = slopeAngle >= maxSlopeAngle;
                 if (isSliding)
                 {
+                    float slideSpeed = speedModifier * -speed * 4;
+
                     Vector3 slopeDirection = Vector3.Cross(groundNormal, Vector3.up);
                     slopeDirection = Vector3.Cross(slopeDirection, groundNormal).normalized;
 
                     Debug.Log(slopeDirection);
-                    velocity += slopeDirection * -speed * 2;
+                    velocity += slopeDirection * slideSpeed;
                 }
             }
         }
@@ -188,9 +292,9 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (canJump && Input.GetButtonDown("Fire1"));
+        if (canJump && Input.GetButtonDown("Fire1")) ;
         {
-            anim.SetBool("Jump", true) ;
+            anim.SetBool("Jump", true);
             canJump = false;
         }
 
@@ -204,5 +308,34 @@ public class PlayerController : MonoBehaviour
 
 
 
+    }
+
+    public Vector3 GroundNormal()
+    {
+
+        List<Vector3> RaycastNormal = new List<Vector3>();
+
+        //Recuperer les normale de tout les raycast qui touchent le sol
+        foreach (Transform raycastOrigin in CheckGround)
+        {
+
+            RaycastHit hit;
+            if (Physics.Raycast(raycastOrigin.transform.position + Vector3.up * 0.1f, Vector3.down, out hit, 0.5f))
+            {
+                Vector3 groundNormal = hit.normal;
+                RaycastNormal.Add(groundNormal);
+            }
+        }
+
+        //Calcule de la moyenne des normals recupere
+        Vector3 averageNormal = Vector3.zero;
+
+        foreach (Vector3 normal in RaycastNormal)
+        {
+            averageNormal += normal;
+        }
+        averageNormal /= RaycastNormal.Count;
+
+        return averageNormal;
     }
 }
