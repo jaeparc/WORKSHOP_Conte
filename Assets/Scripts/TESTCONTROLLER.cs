@@ -29,6 +29,8 @@ public class TESTCONTROLLER : MonoBehaviour
     float speedModifier;
 
     public AnimationCurve SpeedCurve;
+
+    public bool canJump = true;
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -68,8 +70,7 @@ public class TESTCONTROLLER : MonoBehaviour
         if (JumpBufferCounter > 0 && CoyotteTimeCounter > 0 && isSliding == false)
         {
             
-            Jump();
-
+            Invoke("Jump", 0.5f);
         }
 
         velocity.y += gravity * Time.deltaTime;
@@ -144,6 +145,7 @@ public class TESTCONTROLLER : MonoBehaviour
 
     void Jump()
     {
+        canJump = true;
         velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         CoyotteTimeCounter = 0f;
         JumpBufferCounter = 0f;
@@ -194,8 +196,12 @@ public class TESTCONTROLLER : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            JumpBufferCounter = JumpBufferTime;
-
+            
+            if (canJump == true)
+            {
+                speed = speed - 3.5f;
+                JumpBufferCounter = JumpBufferTime;
+            }
         }
         else
         {
@@ -222,7 +228,7 @@ public class TESTCONTROLLER : MonoBehaviour
 
     void AnimationCOntroller()
     {
-        bool canJump = true;
+        
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
         Vector3 Movement = (moveZ * Vector3.up + moveX * Vector3.right);
