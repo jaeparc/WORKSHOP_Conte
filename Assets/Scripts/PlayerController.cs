@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour
     public AnimationCurve SpeedCurve;
 
     public bool Crouch;
+
+    public bool Hanging, CanMove;
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -48,6 +51,7 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         speedBase = speed;
         Crouch = false;
+        CanMove = true;
     }
 
     public void Update()
@@ -63,35 +67,59 @@ public class PlayerController : MonoBehaviour
             Crouch = !Crouch;
         }
 
+        GrabLedge();
+
+        if (CanMove == true)
+        {
+            Acceleration();
+
+            if (Input.GetButtonDown("Fire2"))
+            {
+                Crouch = !Crouch;
+            }
+
+            if (Crouch)
+            {
+                CrouchWalk();
+                transform.localScale = new Vector3(transform.localScale.x, 0.5f, transform.localScale.x);
+            }
+            else
+            {
+                Walk();
+                transform.localScale = new Vector3(transform.localScale.x, 1f, transform.localScale.x);
+
+            }
+
+            if (JumpBufferCounter > 0 && CoyotteTimeCounter > 0 && isSliding == false)
+            {
+                Jump();
+
+            }
+        }
+
         speedModifier = Mathf.Abs(Vector3.Dot(GroundNormal().normalized, Vector3.down));
 
         AnimationCOntroller();
-        Acceleration();
 
-        if (Crouch)
-        {
-            CrouchWalk();
-            transform.localScale = new Vector3(transform.localScale.x, 0.5f, transform.localScale.x);
-        }
-        else
-        {
-            Walk();
-            transform.localScale = new Vector3(transform.localScale.x, 1f, transform.localScale.x);
 
-        }
+       
         SlopeManagement();
 
         SetCoyotteTime();
         SetJumpBuffer();
 
-        if (JumpBufferCounter > 0 && CoyotteTimeCounter > 0 && isSliding == false)
-        {
-            Jump();
 
-        }
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    private void FixedUpdate()
+    {
+
+
+        
+
     }
 
     void CrouchWalk()
@@ -199,10 +227,22 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        Crouch = false;
-        velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-        CoyotteTimeCounter = 0f;
-        JumpBufferCounter = 0f;
+        if (Hanging)
+        {
+            gravity = 80;
+            Hanging = false;
+            StartCoroutine(EnableCanMove(0.25f));
+        }
+        else
+        {
+            CoyotteTimeCounter = 1;
+            Crouch = false;
+            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+            CoyotteTimeCounter = 0f;
+            JumpBufferCounter = 0f;
+        }
+        
+
     }
 
 
@@ -337,5 +377,61 @@ public class PlayerController : MonoBehaviour
         averageNormal /= RaycastNormal.Count;
 
         return averageNormal;
+    }
+
+
+
+    public void GrabLedge()
+    {
+        if (velocity.y < 0 && Hanging == false)
+        {
+            RaycastHit DownHit;
+            Vector3 LineDownStart = (transform.position + Vector3.up * 1.5f) + transform.forward * 1;
+            Vector3 LineDownEnd = (transform.position + Vector3.up * 0.7f) + transform.forward * 1;
+            Physics.Linecast(LineDownStart, LineDownEnd, out DownHit, LayerMask.GetMask("Ground"));
+            Gizmos.color = Color.green;
+
+
+            if (DownHit.collider != null)
+            {
+                RaycastHit ForwardHit;
+                Vector3 LineForwardStart = new Vector3(transform.position.x, DownHit.point.y -0.1f, transform.position.z);
+                Vector3 LineForwardEnd = new Vector3(transform.position.x, DownHit.point.y - 0.1f, transform.position.z) + transform.forward * 1;
+                Physics.Linecast(LineForwardStart, LineForwardEnd, out ForwardHit, LayerMask.GetMask("Ground"));
+
+                if (ForwardHit.collider != null)
+                {
+                    gravity = 0;
+                    velocity = Vector3.zero;
+                    Hanging = true;
+
+                    Vector3 hangPos = new Vector3(ForwardHit.point.x, DownHit.point.y, ForwardHit.point.z);
+                    Vector3 offset = transform.forward * -0.1f + transform.up * -1f;
+                    hangPos += offset;
+
+                    transform.position = hangPos;
+
+                    transform.forward = -ForwardHit.normal;
+                }
+            }
+
+
+        }
+    }
+
+    private IEnumerator EnableCanMove(float WaitTime)
+    {
+        yield return new WaitForSeconds(WaitTime);
+        CanMove = true; 
+    }
+    
+    public void PushCrate()
+    {
+
+    }
+
+    public void Grab()
+    {
+
     }
 }
