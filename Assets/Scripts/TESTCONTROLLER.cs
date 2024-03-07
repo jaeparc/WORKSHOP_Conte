@@ -199,7 +199,11 @@ public class TESTCONTROLLER : MonoBehaviour
             
             if (canJump == true)
             {
-                speed = speed - 3.5f;
+                speed = speed - (speed * 0.7f);
+                if (speed == speedBase)
+                {   
+                    speed = speed - (speed * 0.7f);
+                }
                 JumpBufferCounter = JumpBufferTime;
             }
         }
