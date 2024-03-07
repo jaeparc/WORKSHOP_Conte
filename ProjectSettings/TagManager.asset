@@ -8,6 +8,7 @@ TagManager:
   - Walkable
   - Jump
   - NPC
+  - PlayerHitbox
   layers:
   - Default
   - TransparentFX
