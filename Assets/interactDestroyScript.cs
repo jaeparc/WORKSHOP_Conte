@@ -11,7 +11,7 @@ public class interactDestroyScript : MonoBehaviour
 
 
     void Control(){
-        if(Input.GetKeyDown(KeyCode.E) && !interacted)
+        if(Input.GetKey(KeyCode.E) && !interacted)
             DestroyObject();
     }
 
