@@ -41,7 +41,8 @@ public class DallePuzzle : MonoBehaviour
         if (ContainsSequence(listeDalles, solution))
         {
             // Action si la séquence est correcte, par exemple ouvrir une porte
-            door.SetActive(false);
+            //door.SetActive(false);
+            door.GetComponent<PorteAnimation>().DeclenchementAnim();
             // Réinitialiser listeDalles si nécessaire pour permettre une nouvelle tentative
             listeDalles.Clear();
         }
