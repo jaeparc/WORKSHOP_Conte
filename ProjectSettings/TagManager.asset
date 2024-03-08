@@ -9,6 +9,7 @@ TagManager:
   - Jump
   - NPC
   - PlayerHitbox
+  - NarrativeTrigger
   layers:
   - Default
   - TransparentFX

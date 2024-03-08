@@ -21,6 +21,7 @@ public class GrassComputeScript : MonoBehaviour
 
     // interactors
     ShaderInteractor[] interactors;
+    ShaderSuppressor[] suppressors;
 
     // base data lists
     [SerializeField, HideInInspector]
@@ -81,6 +82,7 @@ public class GrassComputeScript : MonoBehaviour
     Quaternion m_cachedCamRot;
     bool m_fastMode;
     int shaderID;
+    int suppressorShaderID;
 
     // max buffer size can depend on platform and your draw stride, you may have to change it
     int maxBufferSize = 2500000;
@@ -223,6 +225,7 @@ public class GrassComputeScript : MonoBehaviour
         m_InstantiatedComputeShader.SetInt("_NumSourceVertices", numSourceVertices);
         // cache shader property to int id for interactivity;
         shaderID = Shader.PropertyToID("_PositionsMoving");
+        suppressorShaderID = Shader.PropertyToID("_PositionsSuppressors");
 
         // Calculate the number of threads to use. Get the thread size from the kernel
         // Then, divide the number of triangles by that size
@@ -400,6 +403,7 @@ public class GrassComputeScript : MonoBehaviour
             m_InstantiatedComputeShader.SetFloat("_MinFadeDist", currentPresets.minFadeDistance);
             m_InstantiatedComputeShader.SetFloat("_MaxFadeDist", currentPresets.maxDrawDistance);
             interactors = (ShaderInteractor[])FindObjectsOfType(typeof(ShaderInteractor));
+            suppressors = (ShaderSuppressor[])FindObjectsOfType(typeof(ShaderSuppressor));
         }
         else
         {
@@ -466,6 +470,19 @@ public class GrassComputeScript : MonoBehaviour
             }
             m_InstantiatedComputeShader.SetVectorArray(shaderID, positions);
             m_InstantiatedComputeShader.SetFloat("_InteractorsLength", interactors.Length);
+        }
+        if (suppressors.Length > 0)
+        {
+            Vector4[] positions = new Vector4[suppressors.Length];
+
+            for (int i = 0; i < suppressors.Length; i++)
+            {
+                positions[i] = new Vector4(suppressors[i].transform.position.x, suppressors[i].transform.position.y, suppressors[i].transform.position.z,
+                suppressors[i].radius);
+
+            }
+            m_InstantiatedComputeShader.SetVectorArray(suppressorShaderID, positions);
+            m_InstantiatedComputeShader.SetFloat("_SuppressorsLength", suppressors.Length);
         }
         if (m_MainCamera != null)
         {
