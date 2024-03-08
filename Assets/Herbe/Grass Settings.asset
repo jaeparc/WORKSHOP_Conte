@@ -16,7 +16,7 @@ MonoBehaviour:
   materialToUse: {fileID: 2100000, guid: b6fccfbe60033b14db6cacf939837492, type: 2}
   grassRandomHeightMin: 0
   grassRandomHeightMax: 0
-  bladeRadius: 0.2
+  bladeRadius: 0.221
   bladeForwardAmount: 0.38
   bladeCurveAmount: 2
   bottomWidth: 0.1
