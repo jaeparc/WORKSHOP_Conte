@@ -21,17 +21,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: grand_epice_feuille
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ValidKeywords:
-  - _METALLICSPECGLOSSMAP
-  - _NORMALMAP
+  m_Shader: {fileID: -6465566751694194690, guid: 78ce15e8da0fb1e4d8842759219991c4,
+    type: 3}
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Opaque
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -76,8 +74,24 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_3023e77141804f91a746d9df2f938deb_Texture_1:
+        m_Texture: {fileID: 2800000, guid: fb3ddd199daeeb841866b2fa1a55d6c9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_3e18ce205eaa4ed991c2c03300f7a541_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 206c83b0923c86b479f6adba3e386853, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_a8995569111d46f496f626a9668488f9_Texture_1:
+        m_Texture: {fileID: 2800000, guid: b92549a1a9ac0df40bbcb6c884fe3dcd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _base_color:
+        m_Texture: {fileID: 2800000, guid: fb3ddd199daeeb841866b2fa1a55d6c9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -111,6 +125,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0
@@ -118,6 +133,9 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _WindDensity_1: 0.1
+    - _WindSpeed: 0.1
+    - _WindStrengh_1: 0.1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -125,4 +143,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _WindDensity: {r: 2, g: 2, b: 0, a: 0}
+    - _WindStrengh: {r: 0.5, g: 0.2, b: 0, a: 0}
+    - _windspeed: {r: 0.5, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
