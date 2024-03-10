@@ -136,11 +136,17 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (Hanging || onPole && Input.GetButtonDown("Fire1") )
+        if (onPole && Input.GetButtonDown("Fire1") )
         {
             
             Jump();
         }
+        if (Hanging && Input.GetButtonDown("Fire1"))
+        {
+
+            Jump();
+        }
+
 
         speedModifier = Mathf.Abs(Vector3.Dot(GroundNormal().normalized, Vector3.down));
 
@@ -305,12 +311,14 @@ public class PlayerController : MonoBehaviour
                 */
 
         movementMethod = 0;
+        gravity = -80f;
         CoyotteTimeCounter = 1;
         Crouch = false;
         velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         CoyotteTimeCounter = 0f;
         JumpBufferCounter = 0f;
-
+        Hanging = false;
+        onPole = false;
     }
 
 
@@ -529,8 +537,21 @@ public class PlayerController : MonoBehaviour
 
     public void LedgeMovement()
     {
+        float moveX = Input.GetAxis("Horizontal"); // Get horizontal input
 
+        // Assuming the player's forward direction is facing the wall, rightward movement will be the player's right vector, and leftward movement will be the opposite.
+        Vector3 moveDirection = transform.right * moveX;
+
+        // You might want to adjust the movement speed while on the ledge, for more precise control
+        float ledgeMoveSpeed = speed * 0.5f; // Half the normal speed, for example
+
+        // Apply the movement. Since you're using a CharacterController, you can directly use the Move function
+        controller.Move(moveDirection * ledgeMoveSpeed * Time.deltaTime);
+
+        // Optional: Adjust the player's rotation if necessary, depending on how you want them to face while moving along the ledge
+        // For example, keep facing the wall or dynamically change facing direction based on movement direction
     }
+
 
 
     /*    public void PoleClimbing()
