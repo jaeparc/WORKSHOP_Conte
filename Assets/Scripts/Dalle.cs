@@ -5,6 +5,11 @@ public class Dalle : MonoBehaviour
     private AudioSource audioSourceEnter;
     private AudioSource audioSourceExit;
 
+    public bool puzzleReussi;
+    public bool dallePoissonPressed;
+    public bool dalleOiseauPressed;
+    public bool dalleAraigneePressed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +40,18 @@ public class Dalle : MonoBehaviour
         {
             audioSourceEnter.Play();
             transform.position -= new Vector3(0,0.1f,0);
+            if (gameObject.name == "DallePoisson")
+            {
+                dallePoissonPressed = true;
+            }
+            else if (gameObject.name == "DalleOiseau")
+            {
+                dalleOiseauPressed = true;
+            }
+            else if (gameObject.name == "DalleAraignee")
+            {
+                dalleAraigneePressed = true;
+            }
         }
     }
 
