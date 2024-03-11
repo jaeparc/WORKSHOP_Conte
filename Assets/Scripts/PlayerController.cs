@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -34,6 +35,18 @@ public class PlayerController : MonoBehaviour
     public bool Crouch;
 
     public bool Hanging, CanMove;
+
+    public bool onPole;
+
+    public Transform Pole;
+
+    public int movementMethod;
+
+    public GameObject ThePole;
+
+    public GameObject GrabHand,WhatsGrabbed;
+
+    public bool IsGrabbing;
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -56,6 +69,9 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
+
+
+        Debug.Log(movementMethod);
         isGrounded = controller.isGrounded;
         if (isGrounded && velocity.y < 0)
         {
@@ -78,31 +94,83 @@ public class PlayerController : MonoBehaviour
                 Crouch = !Crouch;
             }
 
-            if (Crouch)
-            {
-                CrouchWalk();
-                transform.localScale = new Vector3(transform.localScale.x, 0.5f, transform.localScale.x);
-            }
-            else
-            {
+
+
+            /*            if (Crouch)
+                        {
+                            CrouchWalk();
+                            transform.localScale = new Vector3(transform.localScale.x, 0.5f, transform.localScale.x);
+                        }
+                        else
+                        {
+                            Walk();
+                            transform.localScale = new Vector3(transform.localScale.x, 1f, transform.localScale.x);
+
+                        }*/
+
+        }
+
+        Debug.Log($"Current movement method: {movementMethod}");
+
+        switch (movementMethod)
+        {
+            case 0:
                 Walk();
-                transform.localScale = new Vector3(transform.localScale.x, 1f, transform.localScale.x);
+                break;
+            case 1:
+                CrouchWalk();
+                break;
+            case 2:
+                PoleMovement();
+                break;
+            case 3:
+                LedgeMovement();
+                break;
+            case 4:
+                CrouchWalk();
+                break;
+            default:
+                Walk();
+                break;
+        }
 
-            }
+        if (JumpBufferCounter > 0 && CoyotteTimeCounter > 0 && isSliding == false)
+        {
+            Jump();
 
-            if (JumpBufferCounter > 0 && CoyotteTimeCounter > 0 && isSliding == false)
+
+
+        }
+
+        if (onPole && Input.GetButtonDown("Fire1"))
+        {
+
+            Jump();
+        }
+        if (Hanging && Input.GetButtonDown("Fire1"))
+        {
+
+            Jump();
+        }
+
+
+        if (IsGrabbing && WhatsGrabbed != false)
+        {
+            ItemHold(WhatsGrabbed);
+            if (Input.GetButtonDown("Fire2"))
             {
-                Jump();
-
+                DropItem();
             }
         }
+
+        
 
         speedModifier = Mathf.Abs(Vector3.Dot(GroundNormal().normalized, Vector3.down));
 
         AnimationCOntroller();
 
 
-       
+
         SlopeManagement();
 
         SetCoyotteTime();
@@ -112,13 +180,27 @@ public class PlayerController : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+
     }
 
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Pole") && Input.GetKeyDown(KeyCode.I) && onPole == false)
+        {
+            GrabPole(other.gameObject);
+            ThePole = other.transform.gameObject;
+        }
+        if (other.CompareTag("Grabbable") && Input.GetButtonDown("Fire2"))
+        {
+            GrabItem(other.transform.gameObject);
+        }
+    }
     private void FixedUpdate()
     {
 
 
-        
+
 
     }
 
@@ -147,7 +229,6 @@ public class PlayerController : MonoBehaviour
 
         }
         Vector3 moveDirection = (cameraForward * moveZ + cameraRight * moveX).normalized * (speed / 2) * walkSpeed;
-        Debug.Log(speedModifier);
 
         float yVelocity = velocity.y;
         velocity = moveDirection;
@@ -227,22 +308,40 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (Hanging)
-        {
-            gravity = 80;
-            Hanging = false;
-            StartCoroutine(EnableCanMove(0.25f));
-        }
-        else
-        {
-            CoyotteTimeCounter = 1;
-            Crouch = false;
-            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-            CoyotteTimeCounter = 0f;
-            JumpBufferCounter = 0f;
-        }
-        
+        /*        if (Hanging)
+                {
+                    CanMove = true;
+                    gravity = -80;
+                    Hanging = false;
+                    onPole = false;
+                    velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+                    StartCoroutine(EnableCanMove(0.25f));
+                }
+                else if (onPole)
+                {
+                    gravity = -80;
+                    onPole = false;
+                    velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+                }
+                else
+                {
+                    CoyotteTimeCounter = 1;
+                    Crouch = false;
+                    velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+                    CoyotteTimeCounter = 0f;
+                    JumpBufferCounter = 0f;
+                }
+                */
 
+        movementMethod = 0;
+        gravity = -80f;
+        CoyotteTimeCounter = 1;
+        Crouch = false;
+        velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
+        CoyotteTimeCounter = 0f;
+        JumpBufferCounter = 0f;
+        Hanging = false;
+        onPole = false;
     }
 
 
@@ -263,8 +362,6 @@ public class PlayerController : MonoBehaviour
 
                     Vector3 slopeDirection = Vector3.Cross(groundNormal, Vector3.up);
                     slopeDirection = Vector3.Cross(slopeDirection, groundNormal).normalized;
-
-                    Debug.Log(slopeDirection);
                     velocity += slopeDirection * slideSpeed;
                 }
             }
@@ -383,24 +480,30 @@ public class PlayerController : MonoBehaviour
 
     public void GrabLedge()
     {
+
         if (velocity.y < 0 && Hanging == false)
         {
+
             RaycastHit DownHit;
-            Vector3 LineDownStart = (transform.position + Vector3.up * 1.5f) + transform.forward * 1;
+            Vector3 LineDownStart = (transform.position + Vector3.up * 1.5f) + transform.forward;
             Vector3 LineDownEnd = (transform.position + Vector3.up * 0.7f) + transform.forward * 1;
             Physics.Linecast(LineDownStart, LineDownEnd, out DownHit, LayerMask.GetMask("Ground"));
-            Gizmos.color = Color.green;
+            Debug.DrawLine(LineDownStart, LineDownEnd);
 
 
             if (DownHit.collider != null)
             {
+
                 RaycastHit ForwardHit;
-                Vector3 LineForwardStart = new Vector3(transform.position.x, DownHit.point.y -0.1f, transform.position.z);
+                Vector3 LineForwardStart = new Vector3(transform.position.x, DownHit.point.y - 0.1f, transform.position.z);
                 Vector3 LineForwardEnd = new Vector3(transform.position.x, DownHit.point.y - 0.1f, transform.position.z) + transform.forward * 1;
                 Physics.Linecast(LineForwardStart, LineForwardEnd, out ForwardHit, LayerMask.GetMask("Ground"));
+                Debug.DrawLine(LineForwardStart, LineForwardEnd);
 
                 if (ForwardHit.collider != null)
                 {
+                    movementMethod = 3;
+
                     gravity = 0;
                     velocity = Vector3.zero;
                     Hanging = true;
@@ -419,12 +522,152 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+
+    void PoleMovement()
+    {
+        {
+            Debug.Log("poley");
+            float moveX = Input.GetAxis("Horizontal");
+            float moveZ = Input.GetAxis("Vertical");
+
+            // Moving up and down the pole
+            Vector3 upMovement = moveZ * Vector3.up * Time.deltaTime * speed;
+            controller.Move(upMovement);
+
+            // Rotating around the pole
+            if (moveX != 0)
+            {
+                // Calculate the direction from the player to the pole
+                Vector3 directionToPole = ThePole.transform.position - transform.position;
+                directionToPole.y = 0; // Ignore y-axis to ensure rotation is horizontal
+
+                // Calculate the right vector relative to the direction to the pole, for clockwise/anti-clockwise rotation
+                Vector3 rightDirection = Quaternion.Euler(0, 90, 0) * directionToPole.normalized;
+
+                // Rotate around the pole by moving perpendicular to the direction to the pole
+                Vector3 rotationMovement = rightDirection * moveX * Time.deltaTime * speed;
+                controller.Move(rotationMovement);
+            }
+
+            // Optionally, ensure the player always faces the pole while moving around it
+            Vector3 lookDirection = ThePole.transform.position - transform.position;
+            lookDirection.y = 0; // Keep the rotation horizontal
+            Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        }
+    }
+
+    public void LedgeMovement()
+    {
+        float moveX = Input.GetAxis("Horizontal"); // Get horizontal input
+
+        // Assuming the player's forward direction is facing the wall, rightward movement will be the player's right vector, and leftward movement will be the opposite.
+        Vector3 moveDirection = transform.right * moveX;
+
+        // You might want to adjust the movement speed while on the ledge, for more precise control
+        float ledgeMoveSpeed = speed * 0.5f; // Half the normal speed, for example
+
+        // Apply the movement. Since you're using a CharacterController, you can directly use the Move function
+        controller.Move(moveDirection * ledgeMoveSpeed * Time.deltaTime);
+
+        // Optional: Adjust the player's rotation if necessary, depending on how you want them to face while moving along the ledge
+        // For example, keep facing the wall or dynamically change facing direction based on movement direction
+    }
+
+
+
+    /*    public void PoleClimbing()
+        {
+
+            List<RaycastHit> allPoles = new List<RaycastHit>();
+            RaycastHit hit;
+            Collider[] hitCollider = Physics.OverlapSphere(transform.position, 3, 6);
+
+            if (hitCollider!= null)
+            {
+                foreach (Collider pole in hitCollider)
+                {
+                    if (Physics.Raycast(transform.position, pole.transform.position, out hit))
+                    {
+                        if (hit.distance < 1 && !allPoles.Contains(hit))
+                        {
+                            allPoles.Add(hit);
+                        }
+                        else if (hit.distance >= 1 && allPoles.Contains(hit))
+                        {
+                            allPoles.Remove(hit);
+                        }
+                    }
+                }
+            }
+
+
+
+            if (allPoles!=null)
+            {
+                if (allPoles.Count == 1)
+                {
+                    if (Input.GetButtonDown("Fire1"))
+                    {
+                        transform.position = allPoles[0].transform.position;
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < allPoles.Count; i++)
+                    {
+                        if 
+                    }
+                }
+            }
+
+        }*/
+
+    void GrabPole(GameObject other)
+    {
+        // Calculate the position offset
+        Vector3 targetPosition = new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z);
+        Vector3 offset = targetPosition - transform.position;
+
+        // Move using CharacterController
+        controller.Move(offset);
+
+        velocity = Vector3.zero;
+        gravity = 0;
+        CanMove = false;
+
+        Pole = other.transform;
+        movementMethod = 2;
+        onPole = true;
+    }
+
+    void GrabItem(GameObject itemGrabbed)
+    {
+        itemGrabbed.transform.position = GrabHand.transform.position;
+        WhatsGrabbed = itemGrabbed;
+        IsGrabbing = true;
+
+
+    }
+    void ItemHold(GameObject itemGrabbed)
+    {
+        itemGrabbed.transform.position = GrabHand.transform.position;
+    }
+    void DropItem()
+    {
+        IsGrabbing = false;
+        WhatsGrabbed.transform.position = new Vector3(WhatsGrabbed.transform.position.x, WhatsGrabbed.transform.position.y, WhatsGrabbed.transform.position.z);
+        WhatsGrabbed = null;
+        
+    }
+
     private IEnumerator EnableCanMove(float WaitTime)
     {
         yield return new WaitForSeconds(WaitTime);
-        CanMove = true; 
+        CanMove = true;
     }
-    
+
     public void PushCrate()
     {
 

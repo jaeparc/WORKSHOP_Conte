@@ -9,6 +9,9 @@ TagManager:
   - Jump
   - NPC
   - PlayerHitbox
+  - NarrativeTrigger
+  - Pole
+  - Grabbable
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Pole
   - 
   - 
   - 

@@ -20,7 +20,7 @@ public class dissolve : MonoBehaviour
         //     materialInstance.SetFloat("Vector1_FEFF47F1",1);
         // else if(Input.GetKeyUp(KeyCode.C) && materialInstance.GetFloat("Vector1_FEFF47F1") != 0)
         //     materialInstance.SetFloat("Vector1_FEFF47F1",0);
-        if(Input.GetKeyUp(KeyCode.C))
+        if(Input.GetKey(KeyCode.C))
             TriggerDissolve();
     }
 
