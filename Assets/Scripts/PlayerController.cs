@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     public AnimationCurve SpeedCurve;
 
-    public bool Crouch;
+/*    public bool Crouch;*/
 
     public bool Hanging, CanMove;
 
@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour
     public GameObject GrabHand,WhatsGrabbed;
 
     public bool IsGrabbing;
+
+
+    private bool canDrop;
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -63,25 +66,23 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         speedBase = speed;
-        Crouch = false;
+/*        Crouch = false;*/
         CanMove = true;
     }
 
     public void Update()
     {
 
-
-        Debug.Log(movementMethod);
         isGrounded = controller.isGrounded;
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = groundSnapForce;
         }
 
-        if (Input.GetButtonDown("Fire2"))
+/*        if (Input.GetButtonDown("Fire2"))
         {
             Crouch = !Crouch;
-        }
+        }*/
 
         GrabLedge();
 
@@ -89,11 +90,11 @@ public class PlayerController : MonoBehaviour
         {
             Acceleration();
 
-            if (Input.GetButtonDown("Fire2"))
+/*            if (Input.GetButtonDown("Fire2"))
             {
                 Crouch = !Crouch;
             }
-
+*/
 
 
             /*            if (Crouch)
@@ -110,24 +111,17 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        Debug.Log($"Current movement method: {movementMethod}");
 
         switch (movementMethod)
         {
             case 0:
                 Walk();
                 break;
-            case 1:
-                CrouchWalk();
-                break;
             case 2:
                 PoleMovement();
                 break;
             case 3:
                 LedgeMovement();
-                break;
-            case 4:
-                CrouchWalk();
                 break;
             default:
                 Walk();
@@ -156,8 +150,13 @@ public class PlayerController : MonoBehaviour
 
         if (IsGrabbing && WhatsGrabbed != false)
         {
+
             ItemHold(WhatsGrabbed);
-            if (Input.GetButtonDown("Fire2"))
+            if (canDrop == false)
+            {
+                Invoke("CanDrop", 0.5f);
+            }
+            if (Input.GetButtonDown("Fire2") && canDrop == true)
             {
                 DropItem();
             }
@@ -204,7 +203,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void CrouchWalk()
+/*    void CrouchWalk()
     {
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
@@ -239,7 +238,7 @@ public class PlayerController : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, (speed / 2) * Time.deltaTime * 200);
         }
-    }
+    }*/
     void Walk()
     {
         float moveX = Input.GetAxis("Horizontal");
@@ -293,9 +292,9 @@ public class PlayerController : MonoBehaviour
                 velocity.z = horizontalVelocity.z;
             }
         }
-
-
-
+                                      
+                                      
+                     
 
 
         if (moveDirection != Vector3.zero)
@@ -336,7 +335,7 @@ public class PlayerController : MonoBehaviour
         movementMethod = 0;
         gravity = -80f;
         CoyotteTimeCounter = 1;
-        Crouch = false;
+/*        Crouch = false;*/
         velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         CoyotteTimeCounter = 0f;
         JumpBufferCounter = 0f;
@@ -647,11 +646,13 @@ public class PlayerController : MonoBehaviour
         itemGrabbed.transform.position = GrabHand.transform.position;
         WhatsGrabbed = itemGrabbed;
         IsGrabbing = true;
+        canDrop = false;
 
 
     }
     void ItemHold(GameObject itemGrabbed)
     {
+
         itemGrabbed.transform.position = GrabHand.transform.position;
     }
     void DropItem()
@@ -668,13 +669,8 @@ public class PlayerController : MonoBehaviour
         CanMove = true;
     }
 
-    public void PushCrate()
+    void CanDrop()
     {
-
-    }
-
-    public void Grab()
-    {
-
+        canDrop = true;
     }
 }
