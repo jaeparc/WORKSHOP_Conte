@@ -11,6 +11,7 @@ TagManager:
   - PlayerHitbox
   - NarrativeTrigger
   - Pole
+  - Grabbable
   layers:
   - Default
   - TransparentFX

@@ -44,6 +44,9 @@ public class PlayerController : MonoBehaviour
 
     public GameObject ThePole;
 
+    public GameObject GrabHand,WhatsGrabbed;
+
+    public bool IsGrabbing;
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -66,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
-        
+
 
         Debug.Log(movementMethod);
         isGrounded = controller.isGrounded;
@@ -91,19 +94,19 @@ public class PlayerController : MonoBehaviour
                 Crouch = !Crouch;
             }
 
-            
 
-/*            if (Crouch)
-            {
-                CrouchWalk();
-                transform.localScale = new Vector3(transform.localScale.x, 0.5f, transform.localScale.x);
-            }
-            else
-            {
-                Walk();
-                transform.localScale = new Vector3(transform.localScale.x, 1f, transform.localScale.x);
 
-            }*/
+            /*            if (Crouch)
+                        {
+                            CrouchWalk();
+                            transform.localScale = new Vector3(transform.localScale.x, 0.5f, transform.localScale.x);
+                        }
+                        else
+                        {
+                            Walk();
+                            transform.localScale = new Vector3(transform.localScale.x, 1f, transform.localScale.x);
+
+                        }*/
 
         }
 
@@ -123,6 +126,9 @@ public class PlayerController : MonoBehaviour
             case 3:
                 LedgeMovement();
                 break;
+            case 4:
+                CrouchWalk();
+                break;
             default:
                 Walk();
                 break;
@@ -136,9 +142,9 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (onPole && Input.GetButtonDown("Fire1") )
+        if (onPole && Input.GetButtonDown("Fire1"))
         {
-            
+
             Jump();
         }
         if (Hanging && Input.GetButtonDown("Fire1"))
@@ -147,6 +153,17 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
 
+
+        if (IsGrabbing && WhatsGrabbed != false)
+        {
+            ItemHold(WhatsGrabbed);
+            if (Input.GetButtonDown("Fire2"))
+            {
+                DropItem();
+            }
+        }
+
+        
 
         speedModifier = Mathf.Abs(Vector3.Dot(GroundNormal().normalized, Vector3.down));
 
@@ -163,6 +180,8 @@ public class PlayerController : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+
     }
 
     public void OnTriggerStay(Collider other)
@@ -172,12 +191,16 @@ public class PlayerController : MonoBehaviour
             GrabPole(other.gameObject);
             ThePole = other.transform.gameObject;
         }
+        if (other.CompareTag("Grabbable") && Input.GetButtonDown("Fire2"))
+        {
+            GrabItem(other.transform.gameObject);
+        }
     }
     private void FixedUpdate()
     {
 
 
-        
+
 
     }
 
@@ -472,10 +495,10 @@ public class PlayerController : MonoBehaviour
             {
 
                 RaycastHit ForwardHit;
-                Vector3 LineForwardStart = new Vector3(transform.position.x, DownHit.point.y -0.1f, transform.position.z);
+                Vector3 LineForwardStart = new Vector3(transform.position.x, DownHit.point.y - 0.1f, transform.position.z);
                 Vector3 LineForwardEnd = new Vector3(transform.position.x, DownHit.point.y - 0.1f, transform.position.z) + transform.forward * 1;
                 Physics.Linecast(LineForwardStart, LineForwardEnd, out ForwardHit, LayerMask.GetMask("Ground"));
-                Debug.DrawLine(LineForwardStart,LineForwardEnd);
+                Debug.DrawLine(LineForwardStart, LineForwardEnd);
 
                 if (ForwardHit.collider != null)
                 {
@@ -617,6 +640,26 @@ public class PlayerController : MonoBehaviour
         Pole = other.transform;
         movementMethod = 2;
         onPole = true;
+    }
+
+    void GrabItem(GameObject itemGrabbed)
+    {
+        itemGrabbed.transform.position = GrabHand.transform.position;
+        WhatsGrabbed = itemGrabbed;
+        IsGrabbing = true;
+
+
+    }
+    void ItemHold(GameObject itemGrabbed)
+    {
+        itemGrabbed.transform.position = GrabHand.transform.position;
+    }
+    void DropItem()
+    {
+        IsGrabbing = false;
+        WhatsGrabbed.transform.position = new Vector3(WhatsGrabbed.transform.position.x, WhatsGrabbed.transform.position.y, WhatsGrabbed.transform.position.z);
+        WhatsGrabbed = null;
+        
     }
 
     private IEnumerator EnableCanMove(float WaitTime)
