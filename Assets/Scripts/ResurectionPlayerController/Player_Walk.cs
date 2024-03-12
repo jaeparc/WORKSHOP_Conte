@@ -39,7 +39,7 @@ public class Player_Walk : Player_MovementBehaviour
         else // Adjusted air control
         {
             Vector3 inputDirection = (cameraForward * moveZ + cameraRight * moveX).normalized;
-            float airControlFactor = 0.05f; // Further reduced for less air control
+            float airControlFactor = 0.025f; // Further reduced for less air control
 
             // Apply a damping effect based on the difference between current and desired direction
             Vector3 desiredDirection = inputDirection * Speed;
