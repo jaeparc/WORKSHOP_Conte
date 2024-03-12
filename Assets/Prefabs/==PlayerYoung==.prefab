@@ -432,12 +432,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1725012270566336081}
-  - component: {fileID: 1725012270566336092}
   - component: {fileID: 1725012270566336093}
   - component: {fileID: 1725012270566336090}
-  - component: {fileID: 1725012270566336091}
   - component: {fileID: 1725012270566336080}
   - component: {fileID: 1725012270566336083}
+  - component: {fileID: 1725012270566336091}
+  - component: {fileID: 1725012270566336092}
+  - component: {fileID: 4987624415304832470}
+  - component: {fileID: 5971927720024904366}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -465,64 +467,6 @@ Transform:
   m_Father: {fileID: 1725012271515719822}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &1725012270566336092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725012270566336088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9b30c5720980d4db9e3a0e4321c8d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  speedBase: 0
-  jumpForce: 2.5
-  gravity: -80
-  isGrounded: 0
-  maxSlopeAngle: 45
-  isSliding: 0
-  CoyotteTime: 0.2
-  CoyotteTimeCounter: 0
-  JumpBufferTime: 0.2
-  JumpBufferCounter: 0
-  anim: {fileID: 6530212615707344534}
-  CheckGround:
-  - {fileID: 1725012270535053603}
-  - {fileID: 1725012270971350447}
-  - {fileID: 1725012269816227294}
-  - {fileID: 1725012270841034608}
-  - {fileID: 1725012269495504313}
-  - {fileID: 1725012271274980558}
-  - {fileID: 1725012269843548842}
-  - {fileID: 1725012269843445078}
-  SpeedCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.65162253
-      value: 0.74954855
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  Crouch: 0
 --- !u!65 &1725012270566336093
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -552,19 +496,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1725012270566336091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725012270566336088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de65d6226ee370740a7b9ba2f0c06c12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 1.69
 --- !u!143 &1725012270566336080
 CharacterController:
   m_ObjectHideFlags: 0
@@ -691,6 +622,113 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &1725012270566336091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725012270566336088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de65d6226ee370740a7b9ba2f0c06c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.69
+--- !u!114 &1725012270566336092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725012270566336088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9b30c5720980d4db9e3a0e4321c8d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
+  speedBase: 0
+  jumpForce: 2.5
+  gravity: -80
+  isGrounded: 0
+  maxSlopeAngle: 45
+  isSliding: 0
+  CoyotteTime: 0.2
+  CoyotteTimeCounter: 0
+  JumpBufferTime: 0.2
+  JumpBufferCounter: 0
+  anim: {fileID: 6530212615707344534}
+  CheckGround:
+  - {fileID: 1725012270535053603}
+  - {fileID: 1725012270971350447}
+  - {fileID: 1725012269816227294}
+  - {fileID: 1725012270841034608}
+  - {fileID: 1725012269495504313}
+  - {fileID: 1725012271274980558}
+  - {fileID: 1725012269843548842}
+  - {fileID: 1725012269843445078}
+  SpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.65162253
+      value: 0.74954855
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Hanging: 0
+  CanMove: 0
+  onPole: 0
+  Pole: {fileID: 0}
+  movementMethod: 0
+  ThePole: {fileID: 0}
+  GrabHand: {fileID: 112881749353017185}
+  WhatsGrabbed: {fileID: 0}
+  IsGrabbing: 0
+--- !u!114 &4987624415304832470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725012270566336088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc708829c7c13f48a0d7fea0a962e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 6530212615707344534}
+--- !u!114 &5971927720024904366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725012270566336088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecec789b580ce364b880184ead631298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrabHand: {fileID: 112881749353017185}
+  WhatsGrabbed: {fileID: 0}
+  IsGrabbing: 0
 --- !u!1 &1725012270841034609
 GameObject:
   m_ObjectHideFlags: 0

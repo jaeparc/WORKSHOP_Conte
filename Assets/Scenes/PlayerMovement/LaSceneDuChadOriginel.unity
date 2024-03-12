@@ -2044,6 +2044,92 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1725012270289402569}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1555491905 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4987624415304832470, guid: b4b9e9058f8daee469c885b56806bebf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725012270289402569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555491898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc708829c7c13f48a0d7fea0a962e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1555491906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5971927720024904366, guid: b4b9e9058f8daee469c885b56806bebf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725012270289402569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555491898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecec789b580ce364b880184ead631298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1555491907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555491898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38bfad2ab4da8e9479f3b0c33263eaef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Walk: {fileID: 1555491909}
+  Ledge: {fileID: 0}
+  Pole: {fileID: 0}
+  velocity: {x: 0, y: 0, z: 0}
+--- !u!114 &1555491909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555491898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f5bb60bb35d034c8b75ce02f78d78c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.65162253
+      value: 0.74954855
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.73205245
+      value: 0.7548688
+      inSlope: 0.16226104
+      outSlope: 0.16226104
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Speed: 6
 --- !u!1 &1614484284
 GameObject:
   m_ObjectHideFlags: 0
@@ -4952,9 +5038,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1725012270566336092, guid: b4b9e9058f8daee469c885b56806bebf,
         type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1555491905}
+    - target: {fileID: 1725012270566336092, guid: b4b9e9058f8daee469c885b56806bebf,
+        type: 3}
+      propertyPath: hands
+      value: 
+      objectReference: {fileID: 1555491906}
+    - target: {fileID: 1725012270566336092, guid: b4b9e9058f8daee469c885b56806bebf,
+        type: 3}
       propertyPath: GrabHand
       value: 
       objectReference: {fileID: 1296105276}
+    - target: {fileID: 1725012270566336092, guid: b4b9e9058f8daee469c885b56806bebf,
+        type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 1555491907}
     - target: {fileID: 1725012270566336092, guid: b4b9e9058f8daee469c885b56806bebf,
         type: 3}
       propertyPath: CoyotteTime
