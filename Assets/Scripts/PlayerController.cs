@@ -322,13 +322,4 @@ public class PlayerController : MonoBehaviour
         onPole = true;
     }
 
-
-
-    private IEnumerator EnableCanMove(float WaitTime)
-    {
-        yield return new WaitForSeconds(WaitTime);
-        CanMove = true;
-    }
-
-
 }
