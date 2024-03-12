@@ -440,6 +440,10 @@ GameObject:
   - component: {fileID: 1725012270566336092}
   - component: {fileID: 4987624415304832470}
   - component: {fileID: 5971927720024904366}
+  - component: {fileID: 1555491907}
+  - component: {fileID: 1555491909}
+  - component: {fileID: 1555491910}
+  - component: {fileID: 1555491917}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -651,14 +655,14 @@ MonoBehaviour:
   speedBase: 0
   jumpForce: 2.5
   gravity: -80
+  velocity: {x: 0, y: 0, z: 0}
   isGrounded: 0
   maxSlopeAngle: 45
   isSliding: 0
-  CoyotteTime: 0.2
+  CoyotteTime: 0.1
   CoyotteTimeCounter: 0
-  JumpBufferTime: 0.2
+  JumpBufferTime: 0.1
   JumpBufferCounter: 0
-  anim: {fileID: 6530212615707344534}
   CheckGround:
   - {fileID: 1725012270535053603}
   - {fileID: 1725012270971350447}
@@ -668,6 +672,7 @@ MonoBehaviour:
   - {fileID: 1725012271274980558}
   - {fileID: 1725012269843548842}
   - {fileID: 1725012269843445078}
+  speedModifier: 0
   SpeedCurve:
     serializedVersion: 2
     m_Curve:
@@ -680,6 +685,15 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
+    - serializedVersion: 3
+      time: 0.73205245
+      value: 0.7548688
+      inSlope: 0.16226104
+      outSlope: 0.16226104
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1
@@ -696,11 +710,10 @@ MonoBehaviour:
   CanMove: 0
   onPole: 0
   Pole: {fileID: 0}
-  movementMethod: 0
   ThePole: {fileID: 0}
-  GrabHand: {fileID: 112881749353017185}
-  WhatsGrabbed: {fileID: 0}
-  IsGrabbing: 0
+  hands: {fileID: 5971927720024904366}
+  anim: {fileID: 4987624415304832470}
+  movement: {fileID: 1555491907}
 --- !u!114 &4987624415304832470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,6 +742,91 @@ MonoBehaviour:
   GrabHand: {fileID: 112881749353017185}
   WhatsGrabbed: {fileID: 0}
   IsGrabbing: 0
+--- !u!114 &1555491907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725012270566336088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38bfad2ab4da8e9479f3b0c33263eaef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Walk: {fileID: 1555491909}
+  Ledge: {fileID: 1555491917}
+  Pole: {fileID: 1555491910}
+--- !u!114 &1555491909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725012270566336088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f5bb60bb35d034c8b75ce02f78d78c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.65162253
+      value: 0.74954855
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.73205245
+      value: 0.7548688
+      inSlope: 0.16226104
+      outSlope: 0.16226104
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Speed: 6
+--- !u!114 &1555491910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725012270566336088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8be5bbb2bef5242a52d8ca8dda7a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1555491917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725012270566336088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5409d61e61460c241bf2019707a77325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1725012270841034609
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,8 +965,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5926281, y: 2.1833444, z: 1.3604256}
-  m_Center: {x: 0.06410597, y: 0.0019276738, z: 0.029959671}
+  m_Size: {x: 3.943186, y: 2.9192886, z: 3.7676764}
+  m_Center: {x: 0.13546881, y: 0.030233383, z: 0.13822553}
 --- !u!114 &1725012270988710040
 MonoBehaviour:
   m_ObjectHideFlags: 0

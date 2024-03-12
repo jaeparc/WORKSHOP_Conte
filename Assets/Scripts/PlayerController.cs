@@ -38,8 +38,6 @@ public class PlayerController : MonoBehaviour
 
     public Transform Pole;
 
-    public Player_MovementType movementMethod;
-
     public GameObject ThePole;
 
     public Player_Hands hands;
@@ -88,19 +86,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        switch (movementMethod)
-        {
-            case Player_MovementType.Pole:
-                PoleMovement();
-                break;
-            case Player_MovementType.Ledge:
-                LedgeMovement();
-                break;
-            default: 
-                break;
-
-        }
-
+        
         movement.UpdatePlayer(this, controller);
 
         if (JumpBufferCounter > 0 && CoyotteTimeCounter > 0 && isSliding == false)
@@ -158,7 +144,7 @@ public class PlayerController : MonoBehaviour
     {
        
 
-        movementMethod = Player_MovementType.Walk;
+        movement.Type = Player_MovementType.Walk;
         gravity = -80f;
         CoyotteTimeCounter = 1;
         velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
@@ -294,7 +280,7 @@ public class PlayerController : MonoBehaviour
 
                 if (ForwardHit.collider != null)
                 {
-                    movementMethod = Player_MovementType.Ledge;
+                    movement.Type = Player_MovementType.Ledge;
 
                     gravity = 0;
                     velocity = Vector3.zero;
@@ -316,56 +302,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-    void PoleMovement()
-    {
-        {
-            Debug.Log("poley");
-            float moveX = Input.GetAxis("Horizontal");
-            float moveZ = Input.GetAxis("Vertical");
-
-
-            Vector3 upMovement = moveZ * Vector3.up * Time.deltaTime * speed;
-            controller.Move(upMovement);
-
-
-            if (moveX != 0)
-            {
-
-                Vector3 directionToPole = ThePole.transform.position - transform.position;
-                directionToPole.y = 0; 
-
-
-                Vector3 rightDirection = Quaternion.Euler(0, 90, 0) * directionToPole.normalized;
-
-                // Rotate around the pole by moving perpendicular to the direction to the pole
-                Vector3 rotationMovement = rightDirection * moveX * Time.deltaTime * speed;
-                controller.Move(rotationMovement);
-            }
-
-            // Optionally, ensure the player always faces the pole while moving around it
-            Vector3 lookDirection = ThePole.transform.position - transform.position;
-            lookDirection.y = 0; // Keep the rotation horizontal
-            Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-        }
-    }
-
-    public void LedgeMovement()
-    {
-        float moveX = Input.GetAxis("Horizontal");
-
-
-        Vector3 moveDirection = transform.right * moveX;
-
-
-        float ledgeMoveSpeed = speed * 0.5f; 
-
-
-        controller.Move(moveDirection * ledgeMoveSpeed * Time.deltaTime);
-
-
-
-    }
 
 
 
@@ -382,7 +318,7 @@ public class PlayerController : MonoBehaviour
         CanMove = false;
 
         Pole = other.transform;
-        movementMethod = Player_MovementType.Pole;
+        movement.Type = Player_MovementType.Pole;
         onPole = true;
     }
 
