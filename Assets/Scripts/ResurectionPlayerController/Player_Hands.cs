@@ -23,7 +23,7 @@ public class Player_Hands : Player_Component
             {
                 Invoke(nameof(CanDrop), 0.5f);
             }
-            if (Input.GetButtonDown("Fire2") && canDrop == true)
+            if (Input.GetButtonDown("Fire1") && canDrop == true)
             {
                 DropItem();
             }

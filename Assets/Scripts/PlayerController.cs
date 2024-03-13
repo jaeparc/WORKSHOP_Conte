@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     public Transform Pole;
 
-    public GameObject ThePole;
+    public Pole ThePole;
 
     public Player_Hands hands;
     public Player_Animation anim;
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         
         movement.UpdatePlayer(this, controller);
 
-        if (JumpBufferCounter > 0 && CoyotteTimeCounter > 0 && isSliding == false)
+        if (JumpBufferCounter > 0 && CoyotteTimeCounter > 0 && isSliding == false && velocity.y <= 0)
         {
             Jump();
 
@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if ((onPole || Hanging) && Input.GetButtonDown("Fire1"))
+        if ((onPole || Hanging) && Input.GetButtonDown("Jump"))
         {
 
             Jump();
@@ -128,12 +128,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Pole") && Input.GetKeyDown(KeyCode.I) && onPole == false)
+        if (other.CompareTag("Pole") && Input.GetButtonDown("Fire1") && onPole == false)
         {
             GrabPole(other.gameObject);
-            ThePole = other.transform.gameObject;
+            ThePole.PoleGameObject = other.transform.gameObject;
         }
-        if (other.CompareTag("Grabbable") && Input.GetButtonDown("Fire2"))
+        if (other.CompareTag("Grabbable") && Input.GetButtonDown("Fire1"))
         {
             hands.GrabItem(other.transform.gameObject);
         }
@@ -142,8 +142,8 @@ public class PlayerController : MonoBehaviour
    
     void Jump()
     {
-       
 
+        CanMove = true;
         movement.Type = Player_MovementType.Walk;
         gravity = -80f;
         CoyotteTimeCounter = 1;
@@ -195,7 +195,7 @@ public class PlayerController : MonoBehaviour
 
     void SetJumpBuffer()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Jump"))
         {
             JumpBufferCounter = JumpBufferTime;
 
@@ -259,7 +259,7 @@ public class PlayerController : MonoBehaviour
     public void GrabLedge()
     {
 
-        if (velocity.y < 0 && Hanging == false)
+        if (velocity.y < -0.1f && Hanging == false)
         {
 
             RaycastHit DownHit;
@@ -308,7 +308,7 @@ public class PlayerController : MonoBehaviour
     void GrabPole(GameObject other)
     {
 
-        Vector3 targetPosition = new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z);
+        Vector3 targetPosition = new Vector3(other.transform.position.x, transform.position.y, other.transform.position.z);
         Vector3 offset = targetPosition - transform.position;
 
         controller.Move(offset);
@@ -320,6 +320,11 @@ public class PlayerController : MonoBehaviour
         Pole = other.transform;
         movement.Type = Player_MovementType.Pole;
         onPole = true;
+    }
+
+    public void PoleGrabber()
+    {
+
     }
 
 }
