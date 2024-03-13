@@ -11063,7 +11063,6 @@ GameObject:
   - component: {fileID: 1903326085}
   - component: {fileID: 1903326084}
   - component: {fileID: 1903326083}
-  - component: {fileID: 1903326082}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -11071,19 +11070,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!114 &1903326082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903326081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 752c09f56bc699a4a8414e3b5da63141, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terrainToCopy: {fileID: 0}
 --- !u!154 &1903326083
 TerrainCollider:
   m_ObjectHideFlags: 0
