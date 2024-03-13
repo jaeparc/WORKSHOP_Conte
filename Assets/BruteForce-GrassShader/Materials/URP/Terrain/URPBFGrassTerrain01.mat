@@ -107,7 +107,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal4:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4e1d764fa7e47f34eae88e37253c2542, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal5:
@@ -151,7 +151,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 1}
     - _Splat4:
-        m_Texture: {fileID: 2800000, guid: 7db96738fc700584d86def3a6b45b37c, type: 3}
+        m_Texture: {fileID: 2800000, guid: ba86a4af9e5be094690b5afc214215bd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Splat5:
@@ -217,7 +217,7 @@ Material:
     - _Metallic1: 0
     - _Metallic2: 0
     - _Metallic3: 0
-    - _Metallic4: 0
+    - _Metallic4: 0.742
     - _Metallic5: 0
     - _Metallic6: 0
     - _Metallic7: 0
@@ -271,11 +271,11 @@ Material:
     - _Specular1: {r: 1, g: 1, b: 1, a: 1}
     - _Specular2: {r: 1, g: 1, b: 1, a: 1}
     - _Specular3: {r: 1, g: 1, b: 1, a: 1}
-    - _Specular4: {r: 0, g: 0, b: 0, a: 0}
+    - _Specular4: {r: 0.19824673, g: 0.9339623, b: 0.6278256, a: 1}
     - _Specular5: {r: 1, g: 1, b: 1, a: 1}
     - _Specular6: {r: 1, g: 1, b: 1, a: 1}
     - _Specular7: {r: 1, g: 1, b: 1, a: 1}
-    - _Splat4_STn: {r: 0, g: 0, b: 2, a: 2}
+    - _Splat4_STn: {r: 15.22, g: 0.7, b: 6.84, a: 0.4}
     - _Splat5_STn: {r: 1, g: 1, b: 0, a: 1}
     - _Splat6_STn: {r: 1, g: 1, b: 0, a: 1}
     - _Splat7_STn: {r: 1, g: 1, b: 0, a: 1}

@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/3D/Tessa/Tessa.unity
     guid: 993c4454402ed3e4fa2172fa40e00d29
+  - enabled: 1
+    path: Assets/3D/Lucas Palandre/enviro/enviro.unity
+    guid: 4c8ab731f1a0c0e44828ee84370a7633
   m_configObjects: {}
