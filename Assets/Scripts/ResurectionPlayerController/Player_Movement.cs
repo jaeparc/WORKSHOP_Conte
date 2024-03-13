@@ -20,10 +20,10 @@ public class Player_Movement : Player_Component
                     currentBehaviour = Walk;
                     break;
                 case Player_MovementType.Ledge:
-                    currentBehaviour  = Ledge;
+                    currentBehaviour = Ledge;
                     break;
                 case Player_MovementType.Pole:
-                    currentBehaviour  = Pole;
+                    currentBehaviour = Pole;
                     break;
             }
         }
