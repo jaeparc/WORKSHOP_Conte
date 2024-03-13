@@ -25,7 +25,8 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: -730538453658921958, guid: 09c6226c207daea41b1e68a42397aef2,
+          type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Control:
@@ -200,15 +201,15 @@ Material:
     - _DstBlend: 0
     - _FadeAmplitude: 28
     - _FadeDistance: 16
-    - _FadeDistanceEnd: 200
-    - _FadeDistanceStart: 236
+    - _FadeDistanceEnd: 172.2
+    - _FadeDistanceStart: 26
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _GrassCut: 0
     - _GrassSaturation: 2.48
     - _GrassShading: 0.169
-    - _GrassThinness: 1.05
+    - _GrassThinness: 0.24
     - _GrassThinnessIntersection: 0.3
     - _LightIntensity: 1
     - _Metallic: 0
@@ -225,7 +226,7 @@ Material:
     - _NoisePower: 4
     - _NumberOfStacks: 17
     - _OcclusionStrength: 1
-    - _OffsetValue: 0.4
+    - _OffsetValue: 6.01
     - _Parallax: 0.02
     - _PrioA: 1
     - _PrioB: 1
@@ -244,7 +245,7 @@ Material:
     - _TextureScale: 0.25
     - _TilingN1: 6.78
     - _TilingN2: 0.05
-    - _TilingN3: 1.27
+    - _TilingN3: 4.01
     - _UVSec: 0
     - _UseAmbientLight: 0
     - _UseBetterModelPrecision: 1
