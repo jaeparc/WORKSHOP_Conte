@@ -67,9 +67,9 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - Color_1EB49FED: {r: 0.8396226, g: 0.71515024, b: 0.38416696, a: 0}
+    - Color_1EB49FED: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 0}
     - Color_424F81E0: {r: 0.5599497, g: 0.5582948, b: 0.7735849, a: 0}
-    - Color_68FD0CD8: {r: 0.08503916, g: 0.8584906, b: 0.82939845, a: 0}
+    - Color_68FD0CD8: {r: 0, g: 0, b: 0, a: 0}
     - Color_83CF459: {r: 0.13550197, g: 0.135871, b: 0.3301887, a: 0}
     - Color_AB9D6D2F: {r: 0.070389695, g: 0.056870773, b: 0.16981131, a: 0}
     - Color_B54BEABE: {r: 0.042452827, g: 0.04794694, b: 0.16981131, a: 0}
@@ -81,7 +81,7 @@ Material:
     - _Color_2: {r: 0, g: 0, b: 0, a: 0}
     - _Color_3: {r: 0, g: 0, b: 0, a: 0}
     - _day_cloud_color: {r: 0, g: 0, b: 0, a: 0}
-    - _day_cloud_color_1: {r: 0.5566038, g: 0.16540584, b: 0.16540584, a: 0}
+    - _day_cloud_color_1: {r: 0.3962264, g: 0.30464578, b: 0.30464578, a: 0}
     - _day_cloud_color_2: {r: 0.3584906, g: 0.079476684, b: 0.079476684, a: 0}
     - _nightcloud_color: {r: 0.58437175, g: 0.18752226, b: 0.9245283, a: 0}
   m_BuildTextureStacks: []
