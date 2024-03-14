@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     public Player_Movement movement;
 
-    public bool holdingTorch;
+    
 
    
     private void OnDrawGizmos()
@@ -137,30 +137,22 @@ public class PlayerController : MonoBehaviour
             GrabPole(other.gameObject);
             ThePole.PoleGameObject = other.transform.gameObject;
         }
-        if (other.CompareTag("Grabbable") && Input.GetButtonDown("Fire1"))
-        {
-            /*hands.GrabItem(other.transform.gameObject);*/
-        }
+
 
         if (other.CompareTag("ItemHolder"))
         {
             if (other.GetComponent<ItemHold>().objectHere == true && hands.IsGrabbing == false)
             {
-                other.GetComponent<ItemHold>().MakeObjectDisappear();
-
+                other.GetComponent<ItemHold>().objectHere = false;
+                hands.ItemPut();
             }
             else if (other.GetComponent<ItemHold>().objectHere == false && hands.IsGrabbing == true)
             {
-
+                other.GetComponent<ItemHold>().objectHere = true;
+                hands.ItemTake();
             }
-            else if(other.GetComponent<ItemHold>().objectHere == true && hands.IsGrabbing == true)
-            {
+            
 
-            }
-            else
-            {
-
-            }
         }
     }
 
@@ -193,7 +185,7 @@ public class PlayerController : MonoBehaviour
                 isSliding = slopeAngle >= maxSlopeAngle;
                 if (isSliding)
                 {
-                    float slideSpeed = speedModifier * -speed * 4;
+                    float slideSpeed = speedModifier * - speed * 4;
 
                     Vector3 slopeDirection = Vector3.Cross(groundNormal, Vector3.up);
                     slopeDirection = Vector3.Cross(slopeDirection, groundNormal).normalized;

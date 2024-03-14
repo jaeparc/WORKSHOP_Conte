@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,6 @@ using UnityEngine;
 public class ItemHold : MonoBehaviour
 {
     public GameObject Torch;
-    public GameObject ObjectPrefab;
     public bool objectHere,IsActivated;
     
     
@@ -17,16 +17,16 @@ public class ItemHold : MonoBehaviour
 
     private void Update()
     {
-        
+        if (objectHere && !IsActivated)
+        {
+            Torch.SetActive(true);
+            IsActivated= true;
+        }
+        else if (!objectHere && IsActivated)
+        {
+            Torch.SetActive(false);
+            IsActivated = false;
+        }
     }
 
-    public void MakeObjectAppear()
-    {
-        Torch.SetActive(false);
-    }
-
-    public void MakeObjectDisappear() 
-    {
-        Torch.SetActive(true);
-    }
 }
