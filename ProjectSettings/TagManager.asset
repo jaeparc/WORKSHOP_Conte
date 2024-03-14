@@ -14,6 +14,7 @@ TagManager:
   - Grabbable
   - Undefined
   - Box
+  - ItemHolder
   layers:
   - Default
   - TransparentFX
