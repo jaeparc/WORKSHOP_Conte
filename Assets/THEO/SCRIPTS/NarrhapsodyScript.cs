@@ -44,6 +44,7 @@ public class NarrhapsodyScript : MonoBehaviour
         if(index > books.Count-1){
             Debug.LogError("Book index out of range");
         } else if(!books[index].GetComponent<BookControl>().triggered){
+            GameObject.FindWithTag("Player").GetComponent<PlayerController>().enabled = false;
             books[index].SetActive(true);
             books[index].GetComponent<Animator>().SetTrigger("openBook");
             books[index].GetComponent<BookControl>().triggered = true;

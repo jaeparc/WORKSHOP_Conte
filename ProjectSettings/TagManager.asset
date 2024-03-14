@@ -12,6 +12,8 @@ TagManager:
   - NarrativeTrigger
   - Pole
   - Grabbable
+  - Undefined
+  - Box
   layers:
   - Default
   - TransparentFX
