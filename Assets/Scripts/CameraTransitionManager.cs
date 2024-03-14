@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class CameraSwitchNoTransition : MonoBehaviour
+public class CameraTransitionManager : MonoBehaviour
 {
     private CinemachineBrain cinemachineBrain;
     public CinemachineVirtualCamera targetCamera;
     public CinemachineMixingCamera targetMixingCamera;
+
+    public float transitionTime = 1f;
 
     // Déclarer originalBlend comme membre de la classe pour qu'elle soit accessible partout dans la classe
     private CinemachineBlendDefinition originalBlend;
@@ -22,7 +24,7 @@ public class CameraSwitchNoTransition : MonoBehaviour
     public void ActivateCameraWithoutTransition()
     {
         // Désactiver la transition
-        cinemachineBrain.m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.EaseInOut, 1);
+        cinemachineBrain.m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.EaseInOut, transitionTime);
 
         // Activer les caméras cibles si elles sont assignées
         if (targetCamera != null)
