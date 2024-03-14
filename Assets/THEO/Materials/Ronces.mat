@@ -61,6 +61,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 8f3b8de7edacaf14fb259fe12d4d3ac3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -85,8 +89,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Metallic:
+        m_Texture: {fileID: 2800000, guid: 5f101badac71b774893cc7b375104e54, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: 9f634502de7ca0e4e90d262e55641975, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -148,11 +160,13 @@ Material:
     - _Parallax: 0.02
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Smoothness: 0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
     - _UVSec: 0
+    - _Use_Texture: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -160,11 +174,12 @@ Material:
     - Color_3B270DCB: {r: 1, g: 0, b: 0, a: 0}
     - Color_490A633A: {r: 0.3764706, g: 8.847059, b: 11.984314, a: 0}
     - Color_57725705: {r: 0, g: 10.221912, b: 15.813397, a: 0}
-    - Color_6DF76E71: {r: 0, g: 0, b: 0, a: 0}
+    - Color_6DF76E71: {r: 1, g: 0, b: 0, a: 0}
     - Color_B198AF46: {r: 8, g: 0, b: 0, a: 0}
     - Color_DEEEB930: {r: 2, g: 2, b: 2, a: 1}
     - Vector2_A1C2B0F8: {r: 1, g: 1, b: 0, a: 0}
     - _Base_Color: {r: 0, g: 0.4716981, b: 0.017808517, a: 0}
+    - _Base_color_Use_only_if_use_texture_false: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
