@@ -10,22 +10,23 @@ public class OtherCameraManager : MonoBehaviour
     private Dictionary<GameObject, Coroutine> cameraDisableCoroutines = new Dictionary<GameObject, Coroutine>();
 
     public void EnterCollider(Collider collider, GameObject cameraToManage)
+{
+    if (!cameraColliders.ContainsKey(cameraToManage))
     {
-        if (!cameraColliders.ContainsKey(cameraToManage))
-        {
-            cameraColliders[cameraToManage] = new HashSet<Collider>();
-        }
-
-        cameraColliders[cameraToManage].Add(collider);
-        cameraToManage.SetActive(true);
-        
-        // Si une coroutine de désactivation pour cette caméra est en cours, l'arrêter
-        if (cameraDisableCoroutines.TryGetValue(cameraToManage, out Coroutine coroutine))
-        {
-            StopCoroutine(coroutine);
-            cameraDisableCoroutines.Remove(cameraToManage);
-        }
+        cameraColliders[cameraToManage] = new HashSet<Collider>();
     }
+
+    cameraColliders[cameraToManage].Add(collider);
+    cameraToManage.SetActive(true);
+
+    // Arrêter toute coroutine de désactivation en cours pour cette caméra, indépendamment de si on vient juste d'ajouter le collider ou pas.
+    if (cameraDisableCoroutines.TryGetValue(cameraToManage, out Coroutine coroutine))
+    {
+        StopCoroutine(coroutine);
+        cameraDisableCoroutines.Remove(cameraToManage);
+    }
+}
+
 
     public void ExitCollider(Collider collider, GameObject cameraToManage)
     {

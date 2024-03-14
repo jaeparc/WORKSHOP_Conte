@@ -22,7 +22,7 @@ public class CameraSwitchNoTransition : MonoBehaviour
     public void ActivateCameraWithoutTransition()
     {
         // Désactiver la transition
-        cinemachineBrain.m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.Cut, 0);
+        cinemachineBrain.m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.EaseInOut, 1);
 
         // Activer les caméras cibles si elles sont assignées
         if (targetCamera != null)
@@ -35,7 +35,7 @@ public class CameraSwitchNoTransition : MonoBehaviour
         }
 
         // Planifier la restauration du réglage de transition original
-        //Invoke("ResetBlend", 0.1f);
+        Invoke("ResetBlend", 0.1f);
     }
 
     public void DeactivateCamera()
