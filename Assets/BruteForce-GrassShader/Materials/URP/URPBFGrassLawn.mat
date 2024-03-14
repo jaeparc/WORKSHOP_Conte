@@ -99,8 +99,8 @@ Material:
     - _GrassCut: 0
     - _GrassSaturation: 4.33
     - _GrassShading: 0
-    - _GrassThinness: 0.53
-    - _GrassThinnessIntersection: 0.154
+    - _GrassThinness: 1.022
+    - _GrassThinnessIntersection: 0.932
     - _LightIntensity: 1
     - _Metallic: 0
     - _MinimumNumberStacks: 2
@@ -109,7 +109,7 @@ Material:
     - _NoisePower: 1.24
     - _NumberOfStacks: 16
     - _OcclusionStrength: 1
-    - _OffsetValue: 1
+    - _OffsetValue: 4.14
     - _Parallax: 0.02
     - _ProceduralDistance: 5.5
     - _ProceduralStrength: 1.5
