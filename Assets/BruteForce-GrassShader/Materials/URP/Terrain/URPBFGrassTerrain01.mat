@@ -209,7 +209,7 @@ Material:
     - _GrassCut: 0
     - _GrassSaturation: 2.48
     - _GrassShading: 0.169
-    - _GrassThinness: 0.24
+    - _GrassThinness: 1.005
     - _GrassThinnessIntersection: 0.3
     - _LightIntensity: 1
     - _Metallic: 0
