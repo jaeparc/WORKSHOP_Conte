@@ -61,12 +61,12 @@ public class Player_Hands : Player_Component
     }*/
 
 
-    public void ItemTake(GameObject theObject)
+    public void ItemTake()
     {
         torch.SetActive(true);
     }
 
-    public void ItemPut(GameObject obj)
+    public void ItemPut( )
     {
         torch.SetActive(false);
     }
