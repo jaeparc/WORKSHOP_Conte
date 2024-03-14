@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 807503873677159791}
   - component: {fileID: 807503873677159790}
   - component: {fileID: 807503873677159777}
+  - component: {fileID: 8033380350221571944}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -53,7 +54,7 @@ Terrain:
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
+  m_ShadowCastingMode: 0
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
@@ -91,4 +92,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752c09f56bc699a4a8414e3b5da63141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainToCopy: {fileID: 0}
+  terrainToCopy: {fileID: 807503873677159791}
+--- !u!114 &8033380350221571944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807503873677159789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78078f202184a7749bdcbf559fdc2049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  precisionValue: 10
+  marginError: 0.2
+  markersPos: []
+  totalMarker: 0

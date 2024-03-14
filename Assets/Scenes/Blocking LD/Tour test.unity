@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 12763646}
   - component: {fileID: 12763645}
   - component: {fileID: 12763644}
+  - component: {fileID: 12763647}
   m_Layer: 0
   m_Name: Hitbox2ePont
   m_TagString: Untagged
@@ -148,7 +149,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12763643}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5409c9b992df7a84990e62634cef9690, type: 3}
   m_Name: 
@@ -165,8 +166,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 121.76756, y: 9.469505, z: 15.931353}
-  m_Center: {x: -49.079163, y: 0.82904434, z: 1.0703335}
+  m_Size: {x: 121.54314, y: 9.469505, z: 15.931353}
+  m_Center: {x: -49.191376, y: 0.82904434, z: 1.0703335}
 --- !u!4 &12763646
 Transform:
   m_ObjectHideFlags: 0
@@ -182,6 +183,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &12763647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12763643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70493f8e44fa61439c5a7947a0fc0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCamera: {fileID: 0}
+  targetMixingCamera: {fileID: 1813302091}
+  transitionTime: 1
 --- !u!1 &13001652
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +243,7 @@ MonoBehaviour:
   - position: {x: 24.10406, y: 15.556719, z: 5.3450356}
     tangent: {x: -0.03832245, y: 1.896389, z: 4.1301956}
     roll: 0
-  - position: {x: 7.6109433, y: 25.194775, z: 20.83278}
+  - position: {x: 7.6109433, y: 28.842072, z: 20.83278}
     tangent: {x: -12.86407, y: 4.646799, z: -0.23568726}
     roll: 0
   - position: {x: 13.937497, y: 36.439293, z: -7.033515}
@@ -467,7 +483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59994135}
   m_LocalRotation: {x: 0.18301274, y: -0.6830127, z: 0.18301274, w: 0.6830127}
-  m_LocalPosition: {x: 17.478193, y: 6.388271, z: 23.216248}
+  m_LocalPosition: {x: 7.138197, y: 40.18827, z: 23.216248}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -522,7 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 13001653}
-  m_PathPosition: 3.481706
+  m_PathPosition: 2.437448
   m_PositionUnits: 0
   m_PathOffset: {x: 12.414551, y: 4.58, z: -1.9030591}
   m_XDamping: 1.9
@@ -673,6 +689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 1976942232}
   targetMixingCamera: {fileID: 0}
+  transitionTime: 1
 --- !u!65 &93436749
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1408,6 +1425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 1541249779}
   targetMixingCamera: {fileID: 0}
+  transitionTime: 1
 --- !u!65 &353221608
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1715,6 +1733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 38222178}
   targetMixingCamera: {fileID: 0}
+  transitionTime: 0
 --- !u!1 &481121933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,7 +1819,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 1.2
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -1906,7 +1925,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510360077}
   m_LocalRotation: {x: 0.18301274, y: -0.6830127, z: 0.18301274, w: 0.6830127}
-  m_LocalPosition: {x: 17.478193, y: 6.388271, z: 23.216248}
+  m_LocalPosition: {x: 7.138197, y: 40.18827, z: 23.216248}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2017,6 +2036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 682833961}
   targetMixingCamera: {fileID: 0}
+  transitionTime: 1
 --- !u!65 &536124594
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2097,7 +2117,7 @@ MonoBehaviour:
   m_Priority: 13
   m_StandbyUpdate: 2
   m_Weight0: 57
-  m_Weight1: 112.3305
+  m_Weight1: 21.39632
   m_Weight2: 0.5
   m_Weight3: 0.5
   m_Weight4: 0.5
@@ -2181,6 +2201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 1541249779}
   targetMixingCamera: {fileID: 0}
+  transitionTime: 1
 --- !u!1 &617997897 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8874925731862674446, guid: 8cc6cd2a7fdea9543896123864b18062,
@@ -2358,7 +2379,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682833960}
-  m_LocalRotation: {x: 0.24041508, y: 0.7411543, z: -0.3372459, w: 0.5283523}
+  m_LocalRotation: {x: -0.1858045, y: 0.81415313, z: 0.39357275, w: 0.38435918}
   m_LocalPosition: {x: -7.74, y: 23.6, z: 5.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3036,6 +3057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 1541249779}
   targetMixingCamera: {fileID: 0}
+  transitionTime: 1
 --- !u!65 &1194487021
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3749,8 +3771,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541249778}
-  m_LocalRotation: {x: 0.0010078195, y: 0.99759233, z: -0.014842711, w: 0.067736484}
-  m_LocalPosition: {x: 6.789998, y: 5.6099997, z: 23.468521}
+  m_LocalRotation: {x: 0.001007817, y: 0.99759233, z: -0.014842671, w: 0.067736484}
+  m_LocalPosition: {x: -3.5499985, y: 39.41, z: 23.468521}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3872,7 +3894,7 @@ GameObject:
   - component: {fileID: 1568382611}
   - component: {fileID: 1568382610}
   m_Layer: 0
-  m_Name: --HitboxTour-- (9)
+  m_Name: --HitboxHautTour--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3902,8 +3924,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15.416782, y: 6.1621065, z: 16.16129}
-  m_Center: {x: 4.5567904, y: 0.42574453, z: 5.173311}
+  m_Size: {x: 16.291557, y: 4.724163, z: 16.16129}
+  m_Center: {x: 4.119403, y: 1.9558887, z: 5.173311}
 --- !u!4 &1568382612
 Transform:
   m_ObjectHideFlags: 0
@@ -3970,7 +3992,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43572
+  m_Name: pb_Mesh29244
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4160,6 +4182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 682833961}
   targetMixingCamera: {fileID: 0}
+  transitionTime: 1
 --- !u!65 &1645362433
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4355,12 +4378,12 @@ PrefabInstance:
     - target: {fileID: 1725012270922801137, guid: b4b9e9058f8daee469c885b56806bebf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 91.24
+      value: 80.9
       objectReference: {fileID: 0}
     - target: {fileID: 1725012270922801137, guid: b4b9e9058f8daee469c885b56806bebf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9
+      value: 34.7
       objectReference: {fileID: 0}
     - target: {fileID: 1725012270922801137, guid: b4b9e9058f8daee469c885b56806bebf,
         type: 3}
@@ -4551,7 +4574,7 @@ MonoBehaviour:
   m_Priority: 46
   m_StandbyUpdate: 2
   m_Weight0: 34.3
-  m_Weight1: 8.064514
+  m_Weight1: 22.52957
   m_Weight2: 0.5
   m_Weight3: 0.5
   m_Weight4: 0.5
@@ -4566,7 +4589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813302089}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: -21.3, y: 38.55, z: 20.5}
+  m_LocalPosition: {x: -25.73, y: 38.55, z: 20.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5671,7 +5694,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976942231}
-  m_LocalRotation: {x: 0.29285437, y: 0.69390213, z: -0.3769242, w: 0.53913295}
+  m_LocalRotation: {x: -0.13569243, y: 0.83764625, z: 0.2414248, w: 0.4707977}
   m_LocalPosition: {x: -7.74, y: 30.3, z: 4.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6441,6 +6464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 1976942232}
   targetMixingCamera: {fileID: 0}
+  transitionTime: 1
 --- !u!65 &2072046669
 BoxCollider:
   m_ObjectHideFlags: 0
