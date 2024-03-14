@@ -13,7 +13,7 @@ public class CameraTrigger : MonoBehaviour
         cameraManager = FindObjectOfType<OtherCameraManager>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
