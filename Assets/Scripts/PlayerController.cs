@@ -44,6 +44,10 @@ public class PlayerController : MonoBehaviour
     public Player_Animation anim;
 
     public Player_Movement movement;
+
+    public bool holdingTorch;
+
+   
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -135,7 +139,28 @@ public class PlayerController : MonoBehaviour
         }
         if (other.CompareTag("Grabbable") && Input.GetButtonDown("Fire1"))
         {
-            hands.GrabItem(other.transform.gameObject);
+            /*hands.GrabItem(other.transform.gameObject);*/
+        }
+
+        if (other.CompareTag("ItemHolder"))
+        {
+            if (other.GetComponent<ItemHold>().objectHere == true && hands.IsGrabbing == false)
+            {
+                other.GetComponent<ItemHold>().MakeObjectDisappear();
+
+            }
+            else if (other.GetComponent<ItemHold>().objectHere == false && hands.IsGrabbing == true)
+            {
+
+            }
+            else if(other.GetComponent<ItemHold>().objectHere == true && hands.IsGrabbing == true)
+            {
+
+            }
+            else
+            {
+
+            }
         }
     }
 

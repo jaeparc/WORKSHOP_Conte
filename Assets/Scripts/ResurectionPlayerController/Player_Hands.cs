@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Build.Content;
 using UnityEngine;
-
+using UnityEngine.Rendering.Universal.Internal;
 
 public class Player_Hands : Player_Component
 {
@@ -11,11 +12,13 @@ public class Player_Hands : Player_Component
 
     public bool IsGrabbing;
 
+    public GameObject torch;
+
 
     private bool canDrop;
     public override void UpdatePlayer(PlayerController player, CharacterController controller)
     {
-        if (IsGrabbing && WhatsGrabbed != false)
+       /* if (IsGrabbing && WhatsGrabbed != false)
         {
 
             ItemHold(WhatsGrabbed);
@@ -27,9 +30,11 @@ public class Player_Hands : Player_Component
             {
                 DropItem();
             }
-        }
+        }*/
+
+        
     }
-    public void GrabItem(GameObject itemGrabbed)
+    /*public void GrabItem(GameObject itemGrabbed)
     {
         itemGrabbed.transform.position = GrabHand.transform.position;
         WhatsGrabbed = itemGrabbed;
@@ -53,5 +58,18 @@ public class Player_Hands : Player_Component
     void CanDrop()
     {
         canDrop = true;
+    }*/
+
+
+    public void ItemTake(GameObject theObject)
+    {
+        torch.SetActive(true);
     }
+
+    public void ItemPut(GameObject obj)
+    {
+        torch.SetActive(false);
+    }
+
+
 }
