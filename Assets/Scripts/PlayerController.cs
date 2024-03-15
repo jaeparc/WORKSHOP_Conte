@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     public bool Hanging, CanMove;
 
     public bool onPole;
-
+    public Animator animato;
     public Transform Pole;
 
     public Pole ThePole;
@@ -72,6 +72,8 @@ public class PlayerController : MonoBehaviour
     public void Update()
     {
 
+
+
         isGrounded = controller.isGrounded;
         if (isGrounded && velocity.y < 0)
         {
@@ -96,17 +98,20 @@ public class PlayerController : MonoBehaviour
         if (JumpBufferCounter > 0 && CoyotteTimeCounter > 0 && isSliding == false && velocity.y <= 0)
         {
             Jump();
-
-
-
+;
         }
 
         if ((onPole || Hanging) && Input.GetButtonDown("Jump"))
         {
-
             Jump();
+
         }
 
+        if (isGrounded)
+        {
+            anim.jumpDone = false;
+            anim.LedgeGrab = false;
+        }
 
         hands.UpdatePlayer(this, controller);
 
@@ -159,7 +164,7 @@ public class PlayerController : MonoBehaviour
    
     void Jump()
     {
-
+        
         CanMove = true;
         movement.Type = Player_MovementType.Walk;
         gravity = -80f;
@@ -169,6 +174,9 @@ public class PlayerController : MonoBehaviour
         JumpBufferCounter = 0f;
         Hanging = false;
         onPole = false;
+        anim.jumpDone = true;
+
+
     }
 
 
@@ -298,7 +306,7 @@ public class PlayerController : MonoBehaviour
                 if (ForwardHit.collider != null)
                 {
                     movement.Type = Player_MovementType.Ledge;
-
+                    anim.LedgeGrab = true;
                     gravity = 0;
                     velocity = Vector3.zero;
                     Hanging = true;
