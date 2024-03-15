@@ -43,7 +43,7 @@ public class TextBox : MonoBehaviour
             } else if(timer >= elementAssociated.dur_stay+elementAssociated.dur_app){
                 float coefApp = (timer-(elementAssociated.dur_app+elementAssociated.dur_stay))/elementAssociated.dur_dis;
                 float alpha = Mathf.Lerp(1f,0f,coefApp);
-                float scale = Mathf.Lerp(elementAssociated.scale,10f*elementAssociated.scale,coefApp);
+                float scale = Mathf.Lerp(elementAssociated.scale,/*10f*elementAssociated.scale*/0f,coefApp);
                 textToDisplay.alpha = alpha;
                 Color32 colorTextBox = textBox.GetComponent<UnityEngine.UI.Image>().color;
                 textBox.GetComponent<UnityEngine.UI.Image>().color = new Color32(colorTextBox.r,colorTextBox.g,colorTextBox.b,(byte)(255f*alpha));
