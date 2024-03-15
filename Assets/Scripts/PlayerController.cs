@@ -174,6 +174,7 @@ public class PlayerController : MonoBehaviour
         JumpBufferCounter = 0f;
         Hanging = false;
         onPole = false;
+        anim.LedgeGrab = false; 
         anim.jumpDone = true;
 
 

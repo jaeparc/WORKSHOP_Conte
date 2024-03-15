@@ -45,6 +45,8 @@ public class Player_Animation : Player_Component
         anim.SetBool("Jump", jumpDone);
 
         anim.SetBool("IsLedgeGrabbing", LedgeGrab);
+
+
         
 
     }
