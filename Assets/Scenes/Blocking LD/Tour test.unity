@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 13001653}
-  m_PathPosition: 2.437448
+  m_PathPosition: 2.513126
   m_PositionUnits: 0
   m_PathOffset: {x: 12.414551, y: 4.58, z: -1.9030591}
   m_XDamping: 1.9
@@ -1819,7 +1819,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 1.2
+    m_Time: 1
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
