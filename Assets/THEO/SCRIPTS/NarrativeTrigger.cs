@@ -7,4 +7,5 @@ public class NarrativeTrigger : MonoBehaviour
     public bool CSV;
     public bool BOOK;
     public int ID;
+    public bool UniqueTrigger;
 }

@@ -43,10 +43,11 @@ public class NarrhapsodyScript : MonoBehaviour
     public void ActivateBook(int index){
         if(index > books.Count-1){
             Debug.LogError("Book index out of range");
-        } else if(!books[index].GetComponent<BookControl>().triggered){
+        } else {
             GameObject.FindWithTag("Player").GetComponent<PlayerController>().enabled = false;
             books[index].SetActive(true);
             books[index].GetComponent<Animator>().SetTrigger("openBook");
+            books[index].GetComponent<BookControl>().animInProgress = true;
             books[index].GetComponent<BookControl>().triggered = true;
         }
     }
@@ -55,8 +56,7 @@ public class NarrhapsodyScript : MonoBehaviour
         index -= 2;
         if(index > narrativeElements.Count-1){
             Debug.LogError("NarrativeElements index out of range");
-        }
-        else if(!narrativeElements[index].triggered){
+        }else{
             //Instanciation du prefab de textbox
             GameObject instanceTextBox;
             instanceTextBox = Instantiate(textBoxPrefab,transform);

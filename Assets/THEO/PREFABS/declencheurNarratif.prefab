@@ -107,9 +107,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 784026864561726481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5538c75b83bfd004ead3eb1097e05e42, type: 3}
+  m_Script: {fileID: 11500000, guid: f21a038e5dc9e7c48bb57eb9a11835fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CSV: 0
   BOOK: 1
   ID: 0
+  UniqueTrigger: 0

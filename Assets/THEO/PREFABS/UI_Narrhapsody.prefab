@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2857099328188310437}
   - component: {fileID: 2857099328188310436}
   - component: {fileID: 2857099328188310439}
-  - component: {fileID: 2857099328188310443}
+  - component: {fileID: 5007307987583993581}
   m_Layer: 5
   m_Name: UI_Narrhapsody
   m_TagString: Untagged
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2857099328188310443
+--- !u!114 &5007307987583993581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,10 +111,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2857099328188310438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a369285490c685a4bbe49b902d2a6bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f3e9d215f12d604fa803aef78a1efa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csvFilePath: Assets/narrhapsody.csv
+  csvFilePath: assets/THEO/SCRIPTS/narrhapsody.csv
   narrativeElements: []
   textBoxPrefab: {fileID: 7309429337923161891, guid: a8812b8fe42bdf1438e7d22ee26d0fc2,
     type: 3}

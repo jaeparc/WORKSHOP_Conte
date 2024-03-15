@@ -8,21 +8,22 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ronces
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ValidKeywords:
-  - _METALLICSPECGLOSSMAP
-  - _NORMALMAP
+  m_Shader: {fileID: 4800000, guid: f60b00c9668d7fa40af6c20a649abbea, type: 3}
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Opaque
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 8f3b8de7edacaf14fb259fe12d4d3ac3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 8f3b8de7edacaf14fb259fe12d4d3ac3, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -51,7 +52,15 @@ Material:
         m_Texture: {fileID: 2800000, guid: 8f3b8de7edacaf14fb259fe12d4d3ac3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Metallic:
+        m_Texture: {fileID: 2800000, guid: 9f634502de7ca0e4e90d262e55641975, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
+        m_Texture: {fileID: 2800000, guid: 5f101badac71b774893cc7b375104e54, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
         m_Texture: {fileID: 2800000, guid: 5f101badac71b774893cc7b375104e54, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -81,6 +90,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - Vector1_1D9A2AE: 0.01
+    - Vector1_EFE64959: 30
+    - Vector1_FEFF47F1: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -98,6 +110,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.06
@@ -105,10 +118,13 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _Use_Texture: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_6DF76E71: {r: 0, g: 5.145098, b: 16, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Base_color_Use_only_if_use_texture_false: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

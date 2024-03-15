@@ -8,9 +8,11 @@ public class NarrhapsodyDetector : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if(other.CompareTag("NarrativeTrigger") && other.GetComponent<NarrativeTrigger>().CSV){
-            narrhapsody.ActivateNarrativeElement(other.GetComponent<NarrativeTrigger>().ID);
+            if((!narrhapsody.narrativeElements[other.GetComponent<NarrativeTrigger>().ID-2].triggered && other.GetComponent<NarrativeTrigger>().UniqueTrigger) || !other.GetComponent<NarrativeTrigger>().UniqueTrigger)
+                narrhapsody.ActivateNarrativeElement(other.GetComponent<NarrativeTrigger>().ID);
         } else if(other.CompareTag("NarrativeTrigger") && other.GetComponent<NarrativeTrigger>().BOOK){
-            narrhapsody.ActivateBook(other.GetComponent<NarrativeTrigger>().ID);
+            if((!narrhapsody.books[other.GetComponent<NarrativeTrigger>().ID].GetComponent<BookControl>().triggered && other.GetComponent<NarrativeTrigger>().UniqueTrigger) || !other.GetComponent<NarrativeTrigger>().UniqueTrigger)
+                narrhapsody.ActivateBook(other.GetComponent<NarrativeTrigger>().ID);
         }
     }
 }
