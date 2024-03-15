@@ -111,15 +111,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2857099328188310438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a369285490c685a4bbe49b902d2a6bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f3e9d215f12d604fa803aef78a1efa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csvFilePath: Assets/narrhapsody.csv
+  csvFilePath: assets/THEO/SCRIPTS/narrhapsody.csv
   narrativeElements: []
   textBoxPrefab: {fileID: 7309429337923161891, guid: a8812b8fe42bdf1438e7d22ee26d0fc2,
     type: 3}
-  books:
-  - {fileID: 2856963535946983821}
+  books: []
 --- !u!1001 &2857099329359378521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -404,12 +403,6 @@ PrefabInstance:
 --- !u!224 &2647477081060528423 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224000012149926270, guid: 3b11136cfd0d23540940791a20f3e1de,
-    type: 3}
-  m_PrefabInstance: {fileID: 2857099329359378521}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2856963535946983821 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1000010894660052, guid: 3b11136cfd0d23540940791a20f3e1de,
     type: 3}
   m_PrefabInstance: {fileID: 2857099329359378521}
   m_PrefabAsset: {fileID: 0}
