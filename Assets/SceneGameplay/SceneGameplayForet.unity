@@ -10580,8 +10580,9 @@ GameObject:
   - component: {fileID: 685452881}
   - component: {fileID: 685452883}
   - component: {fileID: 685452882}
+  - component: {fileID: 685452884}
   m_Layer: 0
-  m_Name: 4
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10609,7 +10610,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685452880}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5409c9b992df7a84990e62634cef9690, type: 3}
   m_Name: 
@@ -10628,6 +10629,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 17.300312, y: 16.00027, z: 17.223766}
   m_Center: {x: -13.44104, y: 7.5001354, z: 3.4442558}
+--- !u!114 &685452884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685452880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70493f8e44fa61439c5a7947a0fc0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCamera: {fileID: 0}
+  targetMixingCamera: {fileID: 0}
+  transitionTime: 0.8
 --- !u!1001 &687404271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10820,7 +10836,7 @@ GameObject:
   - component: {fileID: 698451180}
   - component: {fileID: 698451179}
   m_Layer: 0
-  m_Name: 3 (2)
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16535,7 +16551,7 @@ PrefabInstance:
     - target: {fileID: 2266487368024138854, guid: ced8a979476c7e6499cbcd3fdaece1d6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 167.19
+      value: 122.7
       objectReference: {fileID: 0}
     - target: {fileID: 2266487368024138854, guid: ced8a979476c7e6499cbcd3fdaece1d6,
         type: 3}
@@ -16545,7 +16561,7 @@ PrefabInstance:
     - target: {fileID: 2266487368024138854, guid: ced8a979476c7e6499cbcd3fdaece1d6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 58.97
+      value: -38.4
       objectReference: {fileID: 0}
     - target: {fileID: 2266487368024138854, guid: ced8a979476c7e6499cbcd3fdaece1d6,
         type: 3}
@@ -17566,7 +17582,7 @@ GameObject:
   - component: {fileID: 1065937165}
   - component: {fileID: 1065937164}
   m_Layer: 0
-  m_Name: 3 (1)
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20000,8 +20016,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 1.11, y: 7.67, z: -5.83}
-  m_XDamping: 0.7
-  m_YDamping: 0.6
+  m_XDamping: 0.5
+  m_YDamping: 0.5
   m_ZDamping: 0.2
   m_AngularDampingMode: 0
   m_PitchDamping: 0
