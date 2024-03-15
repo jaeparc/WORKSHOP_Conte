@@ -7,6 +7,8 @@ public class Player_Animation : Player_Component
 
     public Animator anim;
 
+    public bool jumpDone, LedgeGrab;
+
     public override void UpdatePlayer(PlayerController player, CharacterController controller)
     {
         /*        bool canJump = true;
@@ -36,8 +38,15 @@ public class Player_Animation : Player_Component
                 anim.SetBool("isGrounded", controller.isGrounded);
             */
 
-        anim.SetFloat("XZvelocity", player.velocity.x + player.velocity.z);
+        anim.SetFloat("XZvelocity", Mathf.Abs(player.velocity.x + player.velocity.z));
         anim.SetFloat("Yvelocity", player.velocity.y);
+        anim.SetBool("isGrounded", player.isGrounded);
+
+        anim.SetBool("Jump", jumpDone);
+
+        anim.SetBool("IsLedgeGrabbing", LedgeGrab);
+        
+
     }
 }
 
