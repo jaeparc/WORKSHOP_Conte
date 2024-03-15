@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.6009027, g: 0.5925258, b: 0.9562612, a: 1}
+  m_IndirectSpecularColor: {r: 0.65881854, g: 0.65175533, b: 1.0507536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -660,6 +660,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f5929c0a3095924985cfc9cae1dd7a6, type: 3}
+--- !u!1 &458560111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6166092932921682965, guid: 804c35dc747d87a4fa88ed36980e0487,
+    type: 3}
+  m_PrefabInstance: {fileID: 1767631288322427773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &458560112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458560111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &476414516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,11 +2385,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 0.2
+  far clip plane: 519.39
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 25
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -2372,14 +2412,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993397243}
-  m_LocalRotation: {x: 0.18775153, y: 0.7408886, z: -0.2877555, w: 0.5770877}
-  m_LocalPosition: {x: -28.616, y: 21.569, z: 48.954}
+  m_LocalRotation: {x: 0.056686077, y: 0.33922002, z: -0.02048315, w: 0.93877417}
+  m_LocalPosition: {x: 29.23576, y: -0.068514585, z: -27.903952}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 40.022, y: 102.698, z: -4.037}
+  m_LocalEulerAnglesHint: {x: 6.911, y: 39.734, z: 0}
 --- !u!114 &993397247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2504,7 +2544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044195530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.17, y: 7.56, z: 67.51}
+  m_LocalPosition: {x: -21.4, y: 7.56, z: 67.51}
   m_LocalScale: {x: 1, y: 4.147709, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3886,6 +3926,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CameraEffectURP Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6166092932921682965, guid: 804c35dc747d87a4fa88ed36980e0487,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6166092932921682966, guid: 804c35dc747d87a4fa88ed36980e0487,
         type: 3}

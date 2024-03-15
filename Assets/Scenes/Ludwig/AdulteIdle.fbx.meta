@@ -36,8 +36,8 @@ ModelImporter:
       name: AdulteIdle
       takeName: Armature|ArmatureAction.001
       internalID: -1422011007694221501
-      firstFrame: 0
-      lastFrame: 159
+      firstFrame: 72
+      lastFrame: 94
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
