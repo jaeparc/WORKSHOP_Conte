@@ -9,6 +9,9 @@ public class narrativeElement
     public bool triggered = false;
 
     public narrativeElement(string[] entries){
+        for(int i = 0; i < entries.Length; i++){
+            Debug.Log(entries[i]);
+        }
         text = entries[0].Replace("\"\"","");
         nameCharacter = entries[1];
         position = entries[2];
