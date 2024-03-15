@@ -56,10 +56,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 485089886043608680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70a6be141cae14b4987f3109ce1df438, type: 3}
+  m_Script: {fileID: 11500000, guid: e5ed2d16cc7fa4c4fa33e54f756397f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToDestroy: {fileID: 0}
+  objectsToDestroy: []
   sparkle: {fileID: 8896336013530503678}
   animationToPlay: 0
 --- !u!1001 &485089885670316886

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2857099328188310437}
   - component: {fileID: 2857099328188310436}
   - component: {fileID: 2857099328188310439}
-  - component: {fileID: 2857099328188310443}
+  - component: {fileID: 5007307987583993581}
   m_Layer: 5
   m_Name: UI_Narrhapsody
   m_TagString: Untagged
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2857099328188310443
+--- !u!114 &5007307987583993581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
