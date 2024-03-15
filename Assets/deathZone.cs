@@ -7,7 +7,7 @@ public class deathZone : MonoBehaviour
     public GameObject fonduNoir;
     public Transform respawnPoint;
 
-    void OnTriggerEnter(Collider other){
+    void OnTriggerStay(Collider other){
         if(other.CompareTag("Player")){
             fonduNoir.SetActive(true);
             fonduNoir.GetComponent<fade>().respawnPoint = respawnPoint;

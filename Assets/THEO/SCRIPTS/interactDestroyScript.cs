@@ -7,6 +7,8 @@ public class interactDestroyScript : MonoBehaviour
     [SerializeField] List<GameObject> objectsToDestroy = new List<GameObject>();
     [SerializeField] GameObject sparkle;
     [SerializeField] bool animationToPlay;
+    [SerializeField] GameObject colliderToDisable;
+    [SerializeField] GameObject cameraToDisable;
     bool interacted = false;
 
 
@@ -26,6 +28,11 @@ public class interactDestroyScript : MonoBehaviour
 
     void animationDone(){
         sparkle.SetActive(false);
+        if (colliderToDisable != null) // Bug si le joueur arrive dans le collider avant la fin de l'animation en étant assez rapide (ce qui devrait être impossible)
+        {
+            colliderToDisable.SetActive(false);
+            cameraToDisable.SetActive(false);
+        }
     }
 
     void OnTriggerEnter(Collider other){
