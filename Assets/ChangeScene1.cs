@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class ChangeScene1 : MonoBehaviour
 {
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && Input.GetButtonDown("Fire2"))
+        if (other.CompareTag("Player") && Input.GetButtonDown("Fire1"))
         {
-            SceneManager.LoadScene("BACKUP SceneGameplayTour 1", LoadSceneMode.Additive);
+            
+            SceneManager.LoadScene("BACKUP SceneGameplayTour 1");
         }
     }
 }

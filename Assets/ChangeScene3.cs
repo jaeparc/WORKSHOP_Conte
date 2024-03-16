@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene3 : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && Input.GetButtonDown("Fire2"))
+        if (other.CompareTag("Player") && Input.GetButtonDown("Fire1"))
         {
-            SceneManager.LoadScene("BACKUP maxime intérieur temple 1", LoadSceneMode.Additive);
+            SceneManager.LoadScene("BACKUP maxime intérieur temple 1");
         }
     }
 }
