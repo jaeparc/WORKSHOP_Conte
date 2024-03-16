@@ -13,7 +13,7 @@ public class interactDestroyScript : MonoBehaviour
 
 
     void Control(){
-        if(Input.GetKey(KeyCode.E) && !interacted)
+        if(Input.GetButtonDown("Fire1") && !interacted)
             DestroyObject();
     }
 

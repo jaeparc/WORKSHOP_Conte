@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class boxDetector : MonoBehaviour
-{
+{   
     public GameObject Sparkle;
     public Transform target;
 
     void Control(){
-        if(Input.GetKey(KeyCode.E)){
+        if(Input.GetButton("Fire1")){
             transform.parent.GetComponent<movingBox>().SetDestination(target,transform);
         }
     }
