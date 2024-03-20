@@ -1,57 +1,57 @@
 Texte;Personnage;Position;Scale;App;Stay;Disap
 Munin ? ... Cela fait si longtemps.;Hugin;BR;mid;2;3;1,5
-J'aurais préféré ne jamais te revoir Hugin.;Munin;ML;small;2;3;1,5
+J'aurais prefere ne jamais te revoir Hugin.;Munin;ML;small;2;3;1,5
 Tu m'en veux toujours n'est-ce pas ?;Hugin;BL;mid;2;3;1,5
 Qu'est ce que tu crois ? Que je te pardonnerai si facilement ?;Munin;MC;mid;2;3;1,5
 Je n'avais pas d'autres choix a ce moment la.;Hugin;BL;small;2;3;1,5
-Tes actes ont des conséquences.;Munin;MC;mid;2;3;1,5
+Tes actes ont des consequences.;Munin;MC;mid;2;3;1,5
 Quels act....;Hugin;BL;mid;2;3;1,5
 Qu'est ce que tu as fait ?;Munin;MC;mid;2;3;1,5
 C'est de ta faute !;Munin;BR;mid;2;3;1,5
 Pourquoi m'as-tu fais ca ?;Munin;ML;small;2;3;1,5
-Je te déteste !;Munin;TR;mid;2;3;1,5
+Je te deteste !;Munin;TR;mid;2;3;1,5
 Ce n'est pas ma faute ...;Hugin;BL;small;2;2;1,5
 Tu es un monstre !;Munin;TL;mid;2;1,5;1,5
 Tu voulais juste me faire du mal !;Munin;MC;mid;2;1,5;1,5
 Qu'est ce que tu as fait ?;Munin;TR;mid;2;1,5;1,5
 C'est de ta faute !;Munin;BL;mid;2;1,5;1,5
 Pourquoi m'as-tu fais ca ?;Munin;BC;small;2;1,5;1,5
-Je te déteste !;Munin;TL;mid;2;1,5;1,5
-Pourquoi tu ne m'as pas écouté ?;Munin;MC;small;2;1,5;1,5
-Arrête ... Laisse moi tranquille !;Hugin;BL;small;2;2;1,5
+Je te deteste !;Munin;TL;mid;2;1,5;1,5
+Pourquoi tu ne m'as pas ecoute ?;Munin;MC;small;2;1,5;1,5
+Arrete ... Laisse moi tranquille !;Hugin;BL;small;2;2;1,5
 Va t'en !;Hugin;BL;mid;2;2;1,5
 Tu veux me faire croire que ta violence est partie ?;Munin;BR;mid;2;3;1,5
-Elle a disparu en même temps que toi.;Hugin;TL;mid;1,5;2;1,5
+Elle a disparu en meme temps que toi.;Hugin;TL;mid;1,5;2;1,5
 Et pourtant je suis la.;Munin;BR;mid;2;3;1,5
-Pour cela que je dois régler cela avant qu'il ne soit trop tard.;Hugin;TL;mid;1,5;2;1,5
-Après tant d'années, nous y revoila.;Hugin;ML;mid;1,5;2;1,5
+Pour cela que je dois regler cela avant qu'il ne soit trop tard.;Hugin;TL;mid;1,5;2;1,5
+Apres tant d'annees, nous y revoila.;Hugin;ML;mid;1,5;2;1,5
 Long pour toi Hugin.;Munin;MR;mid;1;2;1
 C'est vrai, excuse moi.;Hugin;BL;small;1,5;2;1
 Hmmmmm.;Munin;MR;mid;0,5;1;1
 Où est-elle ?;Munin;BR;mid;1;2;1
-Probablement déja arrivé la-bas.;Hugin;TL;mid;1;2;1
-C'est tellement différent d'avant.;Munin;TL;mid;1;2;1
-Oui, dans mes souvenis tout était bien plus sombres par ici.;Hugin;MC;small;1,5;2;1,5
-C'était a cause de toi.;Munin;BL;mid;0,5;1;1
-C'était pour t'aider au départ.;Hugin;BC;mid;1;2;1
+Probablement deja arrive la-bas.;Hugin;TL;mid;1;2;1
+C'est tellement different d'avant.;Munin;TL;mid;1;2;1
+Oui, dans mes souvenis tout etait bien plus sombres par ici.;Hugin;MC;small;1,5;2;1,5
+C'etait a cause de toi.;Munin;BL;mid;0,5;1;1
+C'etait pour t'aider au depart.;Hugin;BC;mid;1;2;1
 Mais je comprends tes propos. Et tu as raison.;Hugin;BR;mid;1,5;2;1
-Tu es différent d'avant.;Munin;BL;mid;1;1,5;1
-Des années sont passées.;Hugin;TR;mid;1;1,5;1
+Tu es different d'avant.;Munin;BL;mid;1;1,5;1
+Des annees sont passees.;Hugin;TR;mid;1;1,5;1
 Bien des choses changent.;Hugin;MR;small;0,5;1;0,5
 Tu n'as pas tord.;Munin;ML;mid;1;1,5;0,5
-Tu abuses de ton pouvoir, tu n'écoutes rien ...;Munin;BL;mid;1;2;1,5
+Tu abuses de ton pouvoir, tu n'ecoutes rien ...;Munin;BL;mid;1;2;1,5
 N'as tu aucun regret a faire du mal de la sorte ?;Munin;TC;mid;1;3;1,5
 Tout est de ta faute !;Munin;MR;mid;1;2;1,5
 Tu fais du mal a tout le monde !;Munin;BR;mid;1;2;1,5
 Pourquoi faire ca ?;Munin;BR;mid;2;2;1,5
 Valraven, aidez-moi !;Hugin;TL;mid;1,5;2;1,5
 Hugin ? Cette aura ! Qu'as tu fais ?;Valraven;MC;mid;2;3;1,5
-Pardonnez-moi, je ne vous ai pas écouté.;Hugin;BL;mid;2;3;1,5
+Pardonnez-moi, je ne vous ai pas ecoute.;Hugin;BL;mid;2;3;1,5
 Tu es en panique Hugin, commence par te calmer.;Valraven;TC;mid;2;4;1,5
 Un accident ! La magie noire ... Je n'ai pas voulu !;Hugin;MR;mid;1,5;4;1,5
-Hugin détends-toi et explique moi en détail.;Valraven;BC;mid;2;4;1,5
-Je l'ai utilisé alors que vous m'aviez prévenu.;Hugin;TL;mid;2;3;1,5
-Je t'avais prévenu aussi !;Munin;TC;mid;1;2;1,5
+Hugin detends-toi et explique moi en detail.;Valraven;BC;mid;2;4;1,5
+Je l'ai utilise alors que vous m'aviez prevenu.;Hugin;TL;mid;2;3;1,5
+Je t'avais prevenu aussi !;Munin;TC;mid;1;2;1,5
 J'ai perdu le contrôle... Je ne sais pas quoi faire.;Hugin;ML;small;2;3;1,5
 Munin ... Je suis perdu.;Hugin;BL;small;2;2,5;1,5
 Munin, où est-elle ?;Valraven;TR;mid;1,5;3;1,5
@@ -61,51 +61,51 @@ Elle ... C'est ma faute !;Hugin;BC;mid;1;2;1,5
 Tout le monde le sait !;Munin;ML;mid;1;3;1,5
 Tout va aller Hugin, fais-moi confiance;Valraven;MR;mid;2;2;1,5
 Oui ... Merci.;Hugin;BC;mid;1;2;1,5
-Tu ne mérites pas son aide !;Munin;ML;mid;1;3;1,5
-C'est vrai, désolé ...;Hugin;BC;small;1;2;1,5
+Tu ne merites pas son aide !;Munin;ML;mid;1;3;1,5
+C'est vrai, desole ...;Hugin;BC;small;1;2;1,5
 A qui parles-tu ?;Valraven;MR;mid;2;2;1,5
 Munin ... Elle me parle Valraven.;Hugin;BC;small;1;2;1,5
-Je vois. Viens entre a l'intérieur, je vais t'aider.;Valraven;MR;mid;2;2;1,5
+Je vois. Viens entre a l'interieur, je vais t'aider.;Valraven;MR;mid;2;2;1,5
 Tu es surprenament calme.;Munin;ML;mid;1;2;1,5
-J'avais mis de côté tout ca mais je ne peux plus reculer;Hugin;BR;mid;1;3;1
-C'est la dernière ligne droite avant d'y arriver.;Munin;BL;mid;1;3;1,5
-Oui. Tu m'accompagnes a l'intérieur ?;Hugin;MR;small;1;2;1
+J'avais mis de côte tout ca mais je ne peux plus reculer;Hugin;BR;mid;1;3;1
+C'est la derniere ligne droite avant d'y arriver.;Munin;BL;mid;1;3;1,5
+Oui. Tu m'accompagnes a l'interieur ?;Hugin;MR;small;1;2;1
 Hmmm. Je suis la.;Munin;TC;small;1;2;1
 Merci Munin.;Hugin;TL;small;1;2;1
 Hugin ? ;Munin;TR;mid;1;1;1
 Oui ?;Hugin;ML;mid;1;1;0,5
-Bonne chance a l'intérieur.;Munin;MC;mid;1;3;1,5
-Si tu es de mon côté ca ira.;Hugin;BC;mid;1;2;1,5
+Bonne chance a l'interieur.;Munin;MC;mid;1;3;1,5
+Si tu es de mon côte ca ira.;Hugin;BC;mid;1;2;1,5
 C'est plus long que dans mon souvenir.;Hugin;ML;mid;1;2;1
-Peut-être qu'inconsciemment tu repousses le moment.;Munin;MR;mid;2;3;1,5
-Je ne sais pas. Dans tous les cas, je suis préparé pour la suite.;Hugin;BL;mid;2;3;1,5
+Peut-etre qu'inconsciemment tu repousses le moment.;Munin;MR;mid;2;3;1,5
+Je ne sais pas. Dans tous les cas, je suis prepare pour la suite.;Hugin;BL;mid;2;3;1,5
 On y est. Le moment final.;Hugin;BL;mid;1;2;1
-Oui. Tu te sens bien grand frère ?;Munin;BR;mid;1;2;1,5
+Oui. Tu te sens bien grand frere ?;Munin;BR;mid;1;2;1,5
 Etonnament. Et toi ?;Hugin;TC;mid;1;2;1,5
 Tant que tu le fais avec moi, oui.;Munin;BC;mid;2;2;1,5
 Je serai la jusqu'au dernier moment.;Hugin;MC;small;2;2;2
 Hugin, je me doutais que tu finirais par venir ici un jour.;Valraven;TC;mid;2;4;1,5
 Valraven, comme toujours tu es la où il faut pour m'aider.;Hugin;BC;mid;2;3;1,5
-Tu me flattes. Tu l'as revu je présume ? Munin.;Valraven;TR;mid;2;4;1,5
-Elle n'a pas changé, toujours aussi belle.;Munin;TL;small;1;2;1,5
+Tu me flattes. Tu l'as revu je presume ? Munin.;Valraven;TR;mid;2;4;1,5
+Elle n'a pas change, toujours aussi belle.;Munin;TL;small;1;2;1,5
 Elle te trouve toujours aussi belle qu'autrefois.;Hugin;BC;mid;2;3;1,5
 Haha, je vois. Merci Munin;Valraven;TC;mid;1;2;1,5
-Tu ressens quelque chose en étant ici ?;Valraven;TR;mid;1;2;1,5
-Forcément. L'endroit où tout a commencé.;Hugin;BC;mid;2;3;1,5
+Tu ressens quelque chose en etant ici ?;Valraven;TR;mid;1;2;1,5
+Forcement. L'endroit où tout a commence.;Hugin;BC;mid;2;3;1,5
 Et l'endroit où tout finira.;Hugin;BL;mid;2;3;1
-Acceptation n'est-ce pas. Tu es prêt ?;Valraven;BR;mid;1;2;1,5
+Acceptation n'est-ce pas. Tu es pret ?;Valraven;BR;mid;1;2;1,5
 J'ai eu le temps de faire le point.;Hugin;MC;mid;2;3;1
 Munin aussi ?;Valraven;BR;small;1;2;1,5
 Tu me promets de me rejoindre ?;Munin;BC;small;1;2;1,5
-Quoiqu'il arrive, nous serons réunis a nouveau.;Hugin;BL;small;2;3;1,5
+Quoiqu'il arrive, nous serons reunis a nouveau.;Hugin;BL;small;2;3;1,5
 Hmmm. Je te crois alors.;Munin;MR;mid;1;2;1,5
-Nous sommes prêt.;Hugin;ML;mid;2;3;1
-Tes yeux parlent d'eux-même. C'est l'heure, débarrassons nous de ta malédiction.;Valraven;MC;mid;1;2;1,5
+Nous sommes pret.;Hugin;ML;mid;2;3;1
+Tes yeux parlent d'eux-meme. C'est l'heure, debarrassons nous de ta malediction.;Valraven;MC;mid;1;2;1,5
 Merci Valraven.;Hugin;BL;mid;2;3;1,5
 Merci Valraven.;Munin;BR;mid;2;3;1,5
-Et désolé.;Hugin;MC;mid;1,5;2;1
-Au revoir grand frère.;Munin;BC;mid;2;3;1,5
+Et desole.;Hugin;MC;mid;1,5;2;1
+Au revoir grand frere.;Munin;BC;mid;2;3;1,5
 A bientot petite soeur.;Hugin;BC;mid;2;3;1,5
 ... ;Valraven;TC;small;1;1;1
-Je m'y suis préparé.;Valraven;MR;small;1;2;1,5
+Je m'y suis prepare.;Valraven;MR;small;1;2;1,5
 Bonne chance pour la suite Hugin.;Valraven;MC;mid;1;2;1,5
