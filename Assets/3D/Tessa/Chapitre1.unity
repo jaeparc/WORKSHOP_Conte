@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.58136755, g: 0.5717409, b: 0.97500235, a: 1}
+  m_IndirectSpecularColor: {r: 0.5848978, g: 0.575235, b: 0.9777041, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1788,7 +1788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &94860218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1807,7 +1807,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 29
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 6591422136417555323}
+  m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 61
@@ -1834,7 +1834,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94860217}
-  m_LocalRotation: {x: -0.08615526, y: -0.17977738, z: -0.015808064, w: 0.97979975}
+  m_LocalRotation: {x: -0.00534141, y: 0.97429264, z: -0.023230337, w: -0.22402157}
   m_LocalPosition: {x: 79.07, y: 7.28, z: 57.699997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3775,7 +3775,7 @@ PrefabInstance:
     - target: {fileID: 809284822115666504, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
       propertyPath: m_FollowOffset.x
-      value: -0.8
+      value: -11.05
       objectReference: {fileID: 0}
     - target: {fileID: 809284822115666504, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
@@ -3785,7 +3785,7 @@ PrefabInstance:
     - target: {fileID: 809284822115666504, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: 9.38
+      value: -2.54
       objectReference: {fileID: 0}
     - target: {fileID: 809284822115666505, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
@@ -3817,25 +3817,30 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 6591422136417555323}
+    - target: {fileID: 809284822499831115, guid: 30d05143dc6393e409aaa9dfe5f01723,
+        type: 3}
+      propertyPath: m_TrackedObjectOffset.y
+      value: 5.72
+      objectReference: {fileID: 0}
     - target: {fileID: 809284822779739060, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
       propertyPath: m_FollowOffset.x
-      value: -5.1
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 809284822779739060, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 5.6
+      value: 6.02
       objectReference: {fileID: 0}
     - target: {fileID: 809284822779739060, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -0.16
+      value: -7.36
       objectReference: {fileID: 0}
     - target: {fileID: 809284822779739061, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
       propertyPath: m_TrackedObjectOffset.y
-      value: 0.09
+      value: -0.66
       objectReference: {fileID: 0}
     - target: {fileID: 809284823290371009, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
@@ -3920,12 +3925,12 @@ PrefabInstance:
     - target: {fileID: 809284823775040864, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: 10.68
+      value: -5.27
       objectReference: {fileID: 0}
     - target: {fileID: 809284823775040865, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
       propertyPath: m_TrackedObjectOffset.y
-      value: -1.22
+      value: 1.84
       objectReference: {fileID: 0}
     - target: {fileID: 4319718021541581148, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
@@ -14587,7 +14592,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 61
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -14612,8 +14617,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847968571}
-  m_LocalRotation: {x: 0.27589938, y: -0.038925547, z: 0.011183138, w: 0.96033293}
-  m_LocalPosition: {x: 83.19843, y: 4.851, z: 89.56268}
+  m_LocalRotation: {x: -0.00534141, y: 0.97429264, z: -0.023230337, w: -0.22402157}
+  m_LocalPosition: {x: 79.07, y: 7.28, z: 57.699997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14673,7 +14678,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 0.8
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
