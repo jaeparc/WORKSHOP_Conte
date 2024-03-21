@@ -9,12 +9,6 @@ public class CameraTransitionManager : MonoBehaviour
     public CinemachineVirtualCamera targetCamera;
     public CinemachineMixingCamera targetMixingCamera;
 
-    public CinemachineBlendDefinition.Style style ;
-
-   
-
-    
-
     public float transitionTime = 1f;
 
     // Déclarer originalBlend comme membre de la classe pour qu'elle soit accessible partout dans la classe
@@ -30,7 +24,7 @@ public class CameraTransitionManager : MonoBehaviour
     public void ActivateCameraWithoutTransition()
     {
         // Désactiver la transition
-        cinemachineBrain.m_DefaultBlend = new CinemachineBlendDefinition(style, transitionTime);
+        cinemachineBrain.m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.EaseInOut, transitionTime);
 
         // Activer les caméras cibles si elles sont assignées
         if (targetCamera != null)
