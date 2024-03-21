@@ -9,7 +9,7 @@ public class ChangeScene3 : MonoBehaviour
     {
         if (other.CompareTag("Player") && Input.GetButtonDown("Fire1"))
         {
-            SceneManager.LoadScene("BACKUP maxime intérieur temple 1");
+            SceneManager.LoadScene("Chapitre4");
         }
     }
 }

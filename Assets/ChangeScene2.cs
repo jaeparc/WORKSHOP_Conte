@@ -10,7 +10,7 @@ public class ChangeScene2 : MonoBehaviour
     {
         if (other.CompareTag("Player") && Input.GetButtonDown("Fire1"))
         {
-            SceneManager.LoadScene("SceneGameplayExterieurTemple");
+            SceneManager.LoadScene("Chapitre3");
         }
     }
 }
