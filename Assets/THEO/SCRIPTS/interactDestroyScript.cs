@@ -31,7 +31,10 @@ public class interactDestroyScript : MonoBehaviour
         if (colliderToDisable != null) // Bug si le joueur arrive dans le collider avant la fin de l'animation en étant assez rapide (ce qui devrait être impossible)
         {
             colliderToDisable.SetActive(false);
-            cameraToDisable.SetActive(false);
+            if (cameraToDisable != null)
+            {
+                cameraToDisable.SetActive(false);
+            }
         }
     }
 
