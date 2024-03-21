@@ -3937,6 +3937,11 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 3.4442558
       objectReference: {fileID: 0}
+    - target: {fileID: 809284823290371014, guid: 30d05143dc6393e409aaa9dfe5f01723,
+        type: 3}
+      propertyPath: style
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 809284823304434046, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
       propertyPath: m_Size.x
@@ -4025,12 +4030,12 @@ PrefabInstance:
     - target: {fileID: 809284823717651320, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.069238275
+      value: 0.069238245
       objectReference: {fileID: 0}
     - target: {fileID: 809284823717651320, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.00509405
+      value: 0.0050940467
       objectReference: {fileID: 0}
     - target: {fileID: 809284823717651320, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
@@ -4040,7 +4045,7 @@ PrefabInstance:
     - target: {fileID: 809284823717651320, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.073197395
+      value: -0.07319737
       objectReference: {fileID: 0}
     - target: {fileID: 809284823717651322, guid: 30d05143dc6393e409aaa9dfe5f01723,
         type: 3}
@@ -25642,6 +25647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 2048397868}
   targetMixingCamera: {fileID: 0}
+  style: 1
   transitionTime: 2.2
 --- !u!1001 &1646040511
 PrefabInstance:
