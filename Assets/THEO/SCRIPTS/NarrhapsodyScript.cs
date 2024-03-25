@@ -9,6 +9,7 @@ public class NarrhapsodyScript : MonoBehaviour
     public List<narrativeElement> narrativeElements = new List<narrativeElement>();
     public GameObject textBoxPrefab;
     public List<GameObject> books = new List<GameObject>();
+    public GameObject[] positions = new GameObject[9];
 
     // Start is called before the first frame update
     void Start()
@@ -64,47 +65,40 @@ public class NarrhapsodyScript : MonoBehaviour
             transformInstanceTextBox.localScale = new Vector3(0.01f,0.01f,0.01f);
 
             //Détermination de la position sur le canvas
-            float xPos = 0;
-            float yPos = 0;
+            Vector2 anchPos;
             switch(narrativeElements[index].position){
                 case "TL":
-                    xPos = -Screen.width/4;
-                    yPos = Screen.height/4;
+                    anchPos = positions[0].GetComponent<RectTransform>().anchoredPosition;
                     break;
                 case "TC":
-                    xPos = 0;
-                    yPos = Screen.height/4;
+                    anchPos = positions[1].GetComponent<RectTransform>().anchoredPosition;
                     break;
                 case "TR":
-                    xPos = Screen.width/4;
-                    yPos = Screen.height/4;
+                    anchPos = positions[2].GetComponent<RectTransform>().anchoredPosition;
                     break;
                 case "ML":
-                    xPos = -Screen.width/4;
-                    yPos = 0;
+                    anchPos = positions[3].GetComponent<RectTransform>().anchoredPosition;
                     break;
                 case "MC":
-                    xPos = 0;
-                    yPos = 0;
+                    anchPos = positions[4].GetComponent<RectTransform>().anchoredPosition;
                     break;
                 case "MR":
-                    xPos = Screen.width/4;
-                    yPos = 0;
+                    anchPos = positions[5].GetComponent<RectTransform>().anchoredPosition;
                     break;
                 case "BL":
-                    xPos = -Screen.width/4;
-                    yPos = -Screen.height/4;
+                    anchPos = positions[6].GetComponent<RectTransform>().anchoredPosition;
                     break;
                 case "BC":
-                    xPos = 0;
-                    yPos = -Screen.height/4;
+                    anchPos = positions[7].GetComponent<RectTransform>().anchoredPosition;
                     break;
                 case "BR":
-                    xPos = Screen.width/4;
-                    yPos = -Screen.height/4;
+                    anchPos = positions[8].GetComponent<RectTransform>().anchoredPosition;
+                    break;
+                default:
+                    anchPos = positions[4].GetComponent<RectTransform>().anchoredPosition;
                     break;
             }
-            transformInstanceTextBox.anchoredPosition = new Vector3(xPos,yPos,0f);
+            transformInstanceTextBox.anchoredPosition = anchPos;
 
             //Assignation du texte
             instanceTextBox.GetComponent<TextBox>().elementAssociated = narrativeElements[index];
