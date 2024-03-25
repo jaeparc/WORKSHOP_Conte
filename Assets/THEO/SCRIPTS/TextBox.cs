@@ -49,7 +49,7 @@ public class TextBox : MonoBehaviour
                 textBox.GetComponent<UnityEngine.UI.Image>().color = new Color32(colorTextBox.r,colorTextBox.g,colorTextBox.b,(byte)(255f*alpha));
                 if(nameBox.activeSelf){
                     Color32 colorNameBox = nameBox.GetComponent<UnityEngine.UI.Image>().color;
-                    nameBox.GetComponent<UnityEngine.UI.Image>().color = new Color32(colorNameBox.r,colorNameBox.g,colorNameBox.b,(byte)(255f*alpha));
+                    //nameBox.GetComponent<UnityEngine.UI.Image>().color = new Color32(colorNameBox.r,colorNameBox.g,colorNameBox.b,(byte)(255f*alpha));
                     nameToDisplay.alpha = alpha;
                 }
                 GetComponent<RectTransform>().localScale = new Vector3(scale,scale,1);
